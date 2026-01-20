@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cake Maker | CloudBake</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom-maker.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="loading-overlay">
+    <div class="loading-content">
+        <div class="donut-loader">
+            <img src="img/donut-1-svgrepo-com.svg" alt="Loading..." class="donut-svg">
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+        </div>
+        <p class="loading-text">Baking something delicious...</p>
+    </div>
+</div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-cloud"></i>
+                <span>CloudBake</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#menu">Menu</a></li>
+                <li><a href="index.html#custom">Create</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="#orders">Order Now</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="custom-maker-page">
+        <div class="container">
+            <div class="custom-header">
+                <h1><i class="fas fa-magic"></i> Custom Cake Maker</h1>
+                <p class="subtitle">Design your dream cake step by step. Your current total: <span class="total-price" id="current-total">Rs 0</span></p>
+            </div>
+
+            <div class="custom-maker-content">
+                <div class="custom-options">
+                    <section class="option-section active" data-step="1">
+                        <h2><i class="fas fa-layer-group"></i> Cake Base & Size</h2>
+                        <p class="section-description">Choose your cake foundation and size.</p>
+                        
+                        <div class="option-grid">
+                            <div class="option-card" data-option="base" data-value="vanilla-sponge" data-price="500">
+                                <div class="option-image">
+                                    <img src="img/vanilla-c.jpg" alt="Vanilla Sponge">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Vanilla Cloud Sponge</h3>
+                                    <p>Light and fluffy vanilla sponge cake</p>
+                                    <div class="option-price">+ Rs 500</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="base" data-value="chocolate-fudge" data-price="700">
+                                <div class="option-image">
+                                    <img src="img/chocolate-fudge.jpg" alt="Chocolate Fudge">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Chocolate Fudge</h3>
+                                    <p>Rich and moist chocolate cake</p>
+                                    <div class="option-price">+ Rs 700</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="base" data-value="red-velvet" data-price="1200">
+                                <div class="option-image">
+                                    <img src="img/red-velvet.jpg" alt="Red Velvet">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Red Velvet</h3>
+                                    <p>Classic red velvet with cream cheese notes</p>
+                                    <div class="option-price">+ Rs 1200</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="base" data-value="carrot-cake" data-price="1500">
+                                <div class="option-image">
+                                    <img src="img/carrot-cake.jpg" alt="Carrot Cake">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Carrot Cake</h3>
+                                    <p>Spiced carrot cake with walnuts</p>
+                                    <div class="option-price">+ Rs 1500</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="size-options">
+                            <h3>Select Size</h3>
+                            <div class="size-buttons">
+                                <button class="size-btn" data-size="6" data-price="0">6" (Serves 8-10)</button>
+                                <button class="size-btn active" data-size="8" data-price="500">8" (Serves 12-15) +Rs 500</button>
+                                <button class="size-btn" data-size="10" data-price="1000">10" (Serves 18-22) +Rs 1000</button>
+                                <button class="size-btn" data-size="12" data-price="1500">12" (Serves 25-30) +Rs 1500</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="option-section" data-step="2">
+                        <h2><i class="fas fa-fill-drip"></i> Fillings & Layers</h2>
+                        <p class="section-description">Choose up to 2 fillings for your cake layers.</p>
+                        
+                        <div class="option-grid">
+                            <div class="option-card" data-option="filling" data-value="raspberry-jam" data-price="499">
+                                <div class="option-image">
+                                    <img src="img/raspberry.jpg" alt="Raspberry Jam">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Raspberry Jam</h3>
+                                    <p>Sweet-tart raspberry preserve</p>
+                                    <div class="option-price">+ Rs 499</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="filling" data-value="chocolate-ganache" data-price="699">
+                                <div class="option-image">
+                                    <img src="img/ganache.jpg" alt="Chocolate Ganache">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Chocolate Ganache</h3>
+                                    <p>Rich dark chocolate ganache</p>
+                                    <div class="option-price">+ Rs 699</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="filling" data-value="lemon-curd" data-price="599">
+                                <div class="option-image">
+                                    <img src="img/lemon.jpg" alt="Lemon Curd">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Lemon Curd</h3>
+                                    <p>Zesty lemon cream filling</p>
+                                    <div class="option-price">+ Rs 599</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="filling" data-value="cream-cheese" data-price="599">
+                                <div class="option-image">
+                                    <img src="img/cheese.jpg" alt="Cream Cheese">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Cream Cheese</h3>
+                                    <p>Classic cream cheese frosting filling</p>
+                                    <div class="option-price">+ Rs 599</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layer-options">
+                            <h3>Number of Layers</h3>
+                            <div class="layer-buttons">
+                                <button class="layer-btn active" data-layers="2" data-price="0">2 Layers (Standard)</button>
+                                <button class="layer-btn" data-layers="3" data-price="800">3 Layers +Rs 800</button>
+                                <button class="layer-btn" data-layers="4" data-price="1500">4 Layers +Rs 1500</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="option-section" data-step="3">
+                        <h2><i class="fas fa-paint-roller"></i> Icing & Finish</h2>
+                        <p class="section-description">Choose the icing style and finish for your cake.</p>
+                        
+                        <div class="option-grid">
+                            <div class="option-card" data-option="icing" data-value="buttercream" data-price="799">
+                                <div class="option-image">
+                                    <img src="img/cream.jpg" alt="Buttercream">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Cloud Buttercream</h3>
+                                    <p>Fluffy vanilla buttercream icing</p>
+                                    <div class="option-price">+ Rs 799</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="icing" data-value="cream-cheese-frosting" data-price="899">
+                                <div class="option-image">
+                                    <img src="img/cheesefrost.jpg" alt="Cream Cheese Frosting">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Cream Cheese Frosting</h3>
+                                    <p>Tangy cream cheese frosting</p>
+                                    <div class="option-price">+ Rs 899</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="icing" data-value="chocolate-ganache-glaze" data-price="999">
+                                <div class="option-image">
+                                    <img src="img/ganache.jpg" alt="Chocolate Ganache">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Chocolate Ganache Glaze</h3>
+                                    <p>Shiny chocolate ganache finish</p>
+                                    <div class="option-price">+ Rs 999</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="icing" data-value="fondant" data-price="1299">
+                                <div class="option-image">
+                                    <img src="img/smooth fondant.jpg" alt="Fondant">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Smooth Fondant</h3>
+                                    <p>Premium rolled fondant finish</p>
+                                    <div class="option-price">+ Rs 1299</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="option-section" data-step="4">
+                        <h2><i class="fas fa-star"></i> Extra Decorations</h2>
+                        <p class="section-description">Add final touches to your custom cake.</p>
+                        
+                        <div class="option-grid">
+                            <div class="option-card" data-option="extra" data-value="fresh-berries" data-price="699">
+                                <div class="option-image">
+                                    <img src="img/berries.jpg" alt="Fresh Berries">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Fresh Berries</h3>
+                                    <p>Assorted seasonal berries topping</p>
+                                    <div class="option-price">+ Rs 699</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="extra" data-value="edible-flowers" data-price="899">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Edible Flowers">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Edible Flowers</h3>
+                                    <p>Delicate organic edible flowers</p>
+                                    <div class="option-price">+ Rs 899</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="extra" data-value="gold-leaf" data-price="1499">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1532117449862-4d292dbb2f9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gold Leaf">
+                                </div>
+                                <div class="option-content">
+                                    <h3>24K Gold Leaf</h3>
+                                    <p>Premium edible gold leaf accents</p>
+                                    <div class="option-price">+ Rs 1499</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="extra" data-value="custom-message" data-price="4.99">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1519861531473-920034658307?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Custom Message">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Custom Message</h3>
+                                    <p>Personalized text on cake top</p>
+                                    <div class="option-price">+ Rs 499</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="special-requests">
+                            <h3><i class="fas fa-comment-alt"></i> Special Requests</h3>
+                            <textarea id="special-request" placeholder="Any special instructions? Allergies? Color preferences? Let us know..." rows="4"></textarea>
+                        </div>
+
+                        <div class="image-upload">
+                            <h3><i class="fas fa-image"></i> Upload Inspiration Image</h3>
+                            <div class="upload-area" id="upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drop your image here or click to browse</p>
+                                <p class="upload-note">JPG, PNG up to 5MB</p>
+                                <input type="file" id="image-upload" accept="image/*" hidden>
+                            </div>
+                            <div class="preview-container" id="preview-container"></div>
+                        </div>
+                    </section>
+
+                    <div class="step-navigation">
+                        <button class="btn btn-secondary" id="prev-step">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button class="btn btn-primary" id="next-step">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="btn btn-success" id="submit-order" style="display: none;">
+                            <i class="fas fa-check-circle"></i> Submit Order
+                        </button>
+                    </div>
+                </div>
+
+                <div class="custom-summary">
+                    <div class="summary-header">
+                        <h2><i class="fas fa-receipt"></i> Order Summary</h2>
+                        <button class="btn btn-small" id="clear-all">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                    </div>
+                    
+                    <div class="summary-content">
+                        <div class="summary-item" id="summary-base">
+                            <h3>Cake Base</h3>
+                            <p class="summary-placeholder">No selection yet</p>
+                            <span class="summary-price">Rs 0.00</span>
+                        </div>
+                        
+                        <div class="summary-item" id="summary-filling">
+                            <h3>Fillings</h3>
+                            <p class="summary-placeholder">No selection yet</p>
+                            <span class="summary-price">Rs 0.00</span>
+                        </div>
+                        
+                        <div class="summary-item" id="summary-icing">
+                            <h3>Icing</h3>
+                            <p class="summary-placeholder">No selection yet</p>
+                            <span class="summary-price">Rs 0.00</span>
+                        </div>
+                        
+                        <div class="summary-item" id="summary-extras">
+                            <h3>Extras</h3>
+                            <p class="summary-placeholder">No selection yet</p>
+                            <span class="summary-price">Rs 0.00</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-total">
+                            <h3>Estimated Total</h3>
+                            <div class="total-breakdown">
+                                <div class="breakdown-item">
+                                    <span>Base Price</span>
+                                    <span id="subtotal">Rs 0.00</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span>Size Upgrade</span>
+                                    <span id="size-upgrade">Rs 0.00</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span>Layers Upgrade</span>
+                                    <span id="layers-upgrade">Rs 0.00</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span>Tax (8%)</span>
+                                    <span id="tax">Rs 0.00</span>
+                                </div>
+                                <div class="breakdown-item total">
+                                    <span>Total</span>
+                                    <span id="final-total">Rs 0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-note">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Your cake will be ready in 24-48 hours. We'll contact you to confirm details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-check-circle"></i> Order Submitted!</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-birthday-cake"></i>
+                </div>
+                <h3>Your custom cake order has been received!</h3>
+                <p>Order ID: <strong>CB-<span id="order-id">0000</span></strong></p>
+                <p>We'll contact you within 2 hours to confirm details and provide an exact quote.</p>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="new-design">Start New Design</button>
+                    <button class="btn btn-secondary" id="go-home">Back to Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/custom-maker.js"></script>
+    <script src="js/loader.js"></script>
+</body>
+</html>

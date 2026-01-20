@@ -60,10 +60,7 @@ document.querySelectorAll('.add-btn').forEach(button => {
     });
 });
 
-document.getElementById('launch-maker')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert('🎨 Custom Maker launching! This interactive tool lets you design your dream pastry with real-time preview.');
-});
+
 
 const slideshowImages = [
     {
@@ -183,3 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
         element.style.animationDelay = `${index * 0.15}s`;
     });
 });
+
+
+

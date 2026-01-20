@@ -6,12 +6,28 @@
     <title>CloudBake | Heavenly Pastries</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     
+
+<div id="loading-overlay">
+    <div class="loading-content">
+        <div class="donut-loader">
+
+            <img src="img/donut-1-svgrepo-com.svg" alt="Loading..." class="donut-svg">
+
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+        </div>
+        <p class="loading-text">Baking something delicious...</p>
+    </div>
+</div>
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
@@ -23,7 +39,8 @@
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#custom">Create</a></li>
                 <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#orders">Order Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
             </ul>
             <div class="nav-icons">
                 <a href="#" class="cart-btn">
@@ -163,6 +180,10 @@
                     </div>
                 </div>
             </div>
+            <a href="#" class="menu-btn menu-btn-primary menu-btn-large" id="menu-btn"
+                        onclick="window.location.href='menu.html'; return false;">
+                        <i class="fas fa-magic"></i> Browse all items!
+                    </a>
         </div>
     </section>
 
@@ -178,7 +199,9 @@
                         <li><i class="fas fa-check"></i> Dietary customization</li>
                         <li><i class="fas fa-check"></i> Save and share designs</li>
                     </ul>
-                    <a href="#" class="btn btn-primary btn-large" id="launch-maker">
+
+                    <a href="#" class="btn btn-primary btn-large" id="launch-maker"
+                        onclick="window.location.href='custom-maker.html'; return false;">
                         <i class="fas fa-magic"></i> Launch Maker
                     </a>
                 </div>
@@ -313,5 +336,6 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script src="js/loader.js"></script>
 </body>
 </html>

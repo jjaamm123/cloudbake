@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudBake | Full Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Page Loader -->
+    <div id="loading-overlay">
+        <div class="loading-content">
+            <div class="donut-loader">
+                <!-- Your SVG Icon -->
+                <img src="img/donut-1-svgrepo-com.svg" alt="Loading..." class="donut-svg">
+                <!-- Sparkles -->
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+            <p class="loading-text">Baking something delicious...</p>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-cloud"></i>
+                <span>CloudBake</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="index.html#custom">Create</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="menu-header">
+        <div class="container">
+            <h1 class="menu-title">Our Full Menu</h1>
+            <p class="menu-subtitle">Explore our heavenly collection of pastries, cakes, and treats</p>
+            <div class="menu-stats">
+                <div class="menu-stat">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>25+ Items</span>
+                </div>
+                <div class="menu-stat">
+                    <i class="fas fa-leaf"></i>
+                    <span>Vegetarian</span>
+                </div>
+                <div class="menu-stat">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fresh Daily</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="menu-filter">
+        <div class="container">
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large"></i> All Items
+                </button>
+                <button class="filter-btn" data-filter="cakes">
+                    <i class="fas fa-birthday-cake"></i> Cakes
+                </button>
+                <button class="filter-btn" data-filter="pastries">
+                    <i class="fas fa-cookie-bite"></i> Pastries
+                </button>
+                <button class="filter-btn" data-filter="donuts">
+                    <i class="fas fa-doughnut"></i> Donuts
+                </button>
+                <button class="filter-btn" data-filter="breads">
+                    <i class="fas fa-bread-slice"></i> Breads
+                </button>
+                <button class="filter-btn" data-filter="seasonal">
+                    <i class="fas fa-snowflake"></i> Seasonal
+                </button>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="menu-search" placeholder="Search for your favorite treat...">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="menu-items">
+        <div class="container">
+            <div class="items-grid" id="menu-items-grid">
+
+                <div class="menu-item" data-category="cakes">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cloud Nine Cake">
+                        <div class="item-badge">Bestseller</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Cloud Nine Cake</h3>
+                        <p>Fluffy vanilla sponge with cloud buttercream and delicate decorations</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Serves 8-10</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">$24.99</span>
+                            <button class="add-btn" data-item="Cloud Nine Cake">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="cakes">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Chocolate Fudge Cake">
+                        <div class="item-badge">Popular</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Chocolate Fudge Cake</h3>
+                        <p>Rich chocolate layers with fudge frosting and chocolate shavings</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Serves 6-8</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">$22.99</span>
+                            <button class="add-btn" data-item="Chocolate Fudge Cake">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="cakes">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Red Velvet Dream">
+                    </div>
+                    <div class="item-content">
+                        <h3>Red Velvet Dream</h3>
+                        <p>Classic red velvet with cream cheese frosting and red velvet crumbs</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Serves 8-10</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">$26.99</span>
+                            <button class="add-btn" data-item="Red Velvet Dream">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pastries Category -->
+                <div class="menu-item" data-category="pastries">
+                    <div class="item-image">
+                        <img src="img/croissant.jpg" alt="Fresh-Baked Croissant">
+                        <div class="item-badge">New</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Fresh-Baked Croissant</h3>
+                        <p>Buttery, flaky croissant with golden crust, baked fresh daily</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Fresh Daily</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">Rs 100 (for 2)</span>
+                            <button class="add-btn" data-item="Fresh-Baked Croissant">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="pastries">
+                    <div class="item-image">
+                        <img src="img/muffins.jpg" alt="Fluffy Muffins">
+                        <div class="item-badge">Bestseller</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Fluffy Muffins</h3>
+                        <p>Moist muffins with a fluffy texture and rich homemade flavor</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Pack of 6</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">Rs 180 (for 6)</span>
+                            <button class="add-btn" data-item="Fluffy Muffins">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="pastries">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fruit Tart">
+                    </div>
+                    <div class="item-content">
+                        <h3>Fruit Tart</h3>
+                        <p>Sweet pastry crust filled with custard and topped with fresh seasonal fruits</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Seasonal Fruits</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">$5.99 each</span>
+                            <button class="add-btn" data-item="Fruit Tart">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Donuts Category -->
+                <div class="menu-item" data-category="donuts">
+                    <div class="item-image">
+                        <img src="img/donuts.jpg" alt="Fresh-Baked Donuts">
+                    </div>
+                    <div class="item-content">
+                        <h3>Fresh-Baked Donuts</h3>
+                        <p>Fluffy donuts baked fresh daily with a variety of glazes and toppings</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Pack of 3</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">Rs 150 (for 3)</span>
+                            <button class="add-btn" data-item="Fresh-Baked Donuts">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="donuts">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1551106652-a5bcf4b29ab6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Glazed Donuts">
+                        <div class="item-badge">Popular</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Classic Glazed Donuts</h3>
+                        <p>Soft, pillowy donuts with a sweet, shiny glaze that melts in your mouth</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Pack of 6</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">Rs 220 (for 6)</span>
+                            <button class="add-btn" data-item="Classic Glazed Donuts">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="donuts">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1626094309830-abbb0c99da4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Chocolate Donuts">
+                    </div>
+                    <div class="item-content">
+                        <h3>Chocolate Sprinkle Donuts</h3>
+                        <p>Chocolate glazed donuts topped with colorful sprinkles</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Pack of 4</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">Rs 180 (for 4)</span>
+                            <button class="add-btn" data-item="Chocolate Sprinkle Donuts">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Breads Category -->
+                <div class="menu-item" data-category="breads">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sourdough Bread">
+                    </div>
+                    <div class="item-content">
+                        <h3>Artisan Sourdough</h3>
+                        <p>Traditional sourdough with crisp crust and tangy, airy interior</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegan</span>
+                            <span class="tag">Fresh Daily</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">$6.99 per loaf</span>
+                            <button class="add-btn" data-item="Artisan Sourdough">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="breads">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Brioche">
+                    </div>
+                    <div class="item-content">
+                        <h3>Buttery Brioche</h3>
+                        <p>Rich, tender bread with high egg and butter content</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">$7.99 per loaf</span>
+                            <button class="add-btn" data-item="Buttery Brioche">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seasonal Category -->
+                <div class="menu-item" data-category="seasonal">
+                    <div class="item-image">
+                        <img src="img/o-kulfi.jpg" alt="Kulfi Pastry">
+                        <div class="item-badge">Seasonal</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Kulfi-Inspired Pastry</h3>
+                        <p>Flaky pastry infused with traditional kulfi flavors and pistachios</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Limited Time</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">$4.99 each</span>
+                            <button class="add-btn" data-item="Kulfi-Inspired Pastry">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="seasonal">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pumpkin Spice Muffins">
+                        <div class="item-badge">Seasonal</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Pumpkin Spice Muffins</h3>
+                        <p>Warm spiced muffins with pumpkin puree and cream cheese filling</p>
+                        <div class="item-tags">
+                            <span class="tag">Vegetarian</span>
+                            <span class="tag">Autumn Special</span>
+                        </div>
+                        <div class="item-footer">
+                            <span class="price">Rs 200 (for 6)</span>
+                            <button class="add-btn" data-item="Pumpkin Spice Muffins">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-cta">
+                <h3>Can't find what you're looking for?</h3>
+                <p>Try our custom cake maker to create your perfect dessert!</p>
+                <a href="index.html#custom" class="btn btn-primary btn-large">
+                    <i class="fas fa-magic"></i> Create Custom Cake
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-cloud"></i>
+                        <span>CloudBake</span>
+                    </div>
+                    <p>Heavenly pastries from our cloud kitchen to your home.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html#home">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="index.html#custom">Create</a>
+                    <a href="index.html#reviews">Reviews</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> hello@cloudbake.com</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-BAKE</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cloud Kitchen Network</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CloudBake. All rights reserved.</p>
+                <p>Student Project | Academic Use</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span>Added to bag!</span>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

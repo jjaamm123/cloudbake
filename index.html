@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudBake | Heavenly Pastries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-cloud"></i>
+                <span>CloudBake</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#custom">Create</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#orders">Order Now</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Heavenly Pastries<br>from the <span class="highlight">Cloud</span></h1>
+                <p class="hero-subtitle">Artisanal baked goods crafted in our cloud kitchen and delivered fresh to your door.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-primary">
+                        <i class="fas fa-utensils"></i> View Menu
+                    </a>
+                    <a href="#custom" class="btn btn-secondary">
+                        <i class="fas fa-palette"></i> Create Yours
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <div>
+                            <h3>4.9</h3>
+                            <p>Customer Rating</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-truck"></i>
+                        <div>
+                            <h3>30min</h3>
+                            <p>Fast Delivery</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <h3>500+</h3>
+                            <p>Happy Customers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="img/hero.jpg" alt="Cloud Cake" class="main-image">
+                </div>
+                <div class="floating-element macaron"><img src="img/o-kulfi.jpg" alt="kulfi"></div>
+                <div class="floating-element croissant"><img src="img/donuts.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="popular-items" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cloud Favorites</h2>
+                <p class="section-subtitle">Most loved by our customers</p>
+            </div>
+            <div class="items-grid">
+                
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cloud Cake">
+                        <div class="item-badge">Bestseller</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Cloud Nine Cake</h3>
+                        <p>Fluffy vanilla sponge with cloud buttercream</p>
+                        <div class="item-footer">
+                            <span class="price">$24.99</span>
+                            <button class="add-btn" data-item="Cloud Nine Cake">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="img/croissant.jpg" alt="Rainbow Croissant">
+                        <div class="item-badge">New</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Fresh-Baked Croissant</h3>
+                        <p>Layered pastry with buttery crust</p>
+                        <div class="item-footer">
+                            <span class="price">Rs100 (for 2)</span>
+                            <button class="add-btn" data-item="Fresh-Baked Croissant">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="img/muffins.jpg" alt="Fluffy Muffins">
+                        <div class="item-badge">Bestseller</div>
+                    </div>
+                    <div class="item-content">
+                        <h3>Fluffy Muffins</h3>
+                        <p>Muffins with a fluffy texture and rich homemade flavor</p>
+                        <div class="item-footer">
+                            <span class="price">Rs 180 (for 6)</span>
+                            <button class="add-btn" data-item="Fluffy Muffins">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="img/donuts.jpg" alt="Cloud Donuts">
+                    </div>
+                    <div class="item-content">
+                        <h3>Fresh-Baked Donuts</h3>
+                        <p>Fluffy donuts baked fresh daily</p>
+                        <div class="item-footer">
+                            <span class="price">Rs 150 (for 3)</span>
+                            <button class="add-btn" data-item="Donuts">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="custom-maker" id="custom">
+        <div class="container">
+            <div class="custom-content">
+                <div class="custom-text">
+                    <h2 class="section-title">Create Your <span class="highlight">Cake</span></h2>
+                    <p class="custom-subtitle">Order something uniquely yours with our Custom Cake Maker.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 10+ premium ingredients</li>
+                        <li><i class="fas fa-check"></i> Dietary customization</li>
+                        <li><i class="fas fa-check"></i> Save and share designs</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-large" id="launch-maker">
+                        <i class="fas fa-magic"></i> Launch Maker
+                    </a>
+                </div>
+                <div class="custom-slideshow">
+                    <div class="slideshow-container">
+                        <div class="slideshow-track" id="slideshow-track">
+                            
+                        </div>
+                        <div class="slideshow-nav">
+                            <button class="nav-btn prev-btn" id="prev-slide">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="slideshow-dots" id="slideshow-dots">
+                                
+                            </div>
+                            <button class="nav-btn next-btn" id="next-slide">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cloud Reviews</h2>
+                <p class="section-subtitle">What our customers say</p>
+            </div>
+            <div class="reviews-grid">
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="img/icon.jpg" alt="Alex">
+                        <div>
+                            <h4>Alex Morgan</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"The Cloud Nine Cake was absolutely divine! Perfect for our anniversary."</p>
+                    <span class="review-date">2 days ago</span>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="img/icon.jpg" alt="Sarah">
+                        <div>
+                            <h4>Sarah Chen</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Fast delivery and the presentation was stunning. Will order again!"</p>
+                    <span class="review-date">1 week ago</span>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="img/icon.jpg" alt="Michael">
+                        <div>
+                            <h4>Michael Park</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Custom cake for my daughter's birthday was perfect in every way."</p>
+                    <span class="review-date">3 days ago</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-cloud"></i>
+                        <span>CloudBake</span>
+                    </div>
+                    <p>Heavenly pastries from our cloud kitchen to your home.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#custom">Create</a>
+                    <a href="#reviews">Reviews</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> hello@cloudbake.com</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-BAKE</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cloud Kitchen Network</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CloudBake. All rights reserved.</p>
+                <p>Student Project | Academic Use</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <div class="toast" id="toast">
+        <span>Added to bag!</span>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudBake | Join Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="loading-content">
+            <div class="donut-loader">
+                <img src="img/donut-1-svgrepo-com.svg" alt="Loading..." class="donut-svg">
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+            <p class="loading-text">Preparing your welcome treat...</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-cloud"></i>
+                <span>CloudBake</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#menu">Menu</a></li>
+                <li><a href="index.html#custom">Create</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="login.html" class="login-btn-mobile">
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="register-portal">
+        <div class="register-container">
+            <div class="register-benefits">
+                <div class="benefits-content">
+                    <h1><i class="fas fa-cloud"></i> Join CloudBake</h1>
+                    <p class="benefits-subtitle">Create an account and unlock sweet rewards!</p>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3>Loyalty Program</h3>
+                            <p>Earn points with every purchase. Redeem for discounts, free items, and exclusive treats.</p>
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-star"></i> 1 point per $1 spent</li>
+                                <li><i class="fas fa-gift"></i> Birthday bonus</li>
+                                <li><i class="fas fa-trophy"></i> Tier upgrades</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <h3>Priority Access</h3>
+                            <p>Get early access to new products, limited editions, and holiday specials.</p>
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-clock"></i> Early bird ordering</li>
+                                <li><i class="fas fa-bolt"></i> Faster checkout</li>
+                                <li><i class="fas fa-history"></i> Order history</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="benefit-card highlight">
+                            <div class="benefit-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3>Wholesale Program</h3>
+                            <p>For businesses: Subscribe for bulk pricing, custom orders, and dedicated support.</p>
+                            <ul class="benefit-list">
+                                <li><i class="fas fa-percentage"></i> Up to 40% discount</li>
+                                <li><i class="fas fa-calendar"></i> Monthly subscriptions</li>
+                                <li><i class="fas fa-user-tie"></i> Account manager</li>
+                            </ul>
+                            <a href="#wholesale-form" class="wholesale-jump">Apply for Wholesale</a>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-section">
+                        <h3><i class="fas fa-chart-line"></i> Why Join Us?</h3>
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Happy Members</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">10,000+</div>
+                                <div class="stat-label">Points Redeemed</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4.9★</div>
+                                <div class="stat-label">Member Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="register-form-section">
+                <div class="form-container">
+                    <div class="form-tabs">
+                        <button class="tab-btn active" data-tab="customer">Customer Account</button>
+                        <button class="tab-btn" data-tab="wholesale" id="wholesale-tab">Wholesale Account</button>
+                    </div>
+                    
+                    <form id="customerForm" class="register-form active" data-type="customer">
+                        <div class="form-header">
+                            <h2>Create Account</h2>
+                            <p>Join our community of pastry lovers</p>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">
+                                    <i class="fas fa-user"></i> First Name
+                                </label>
+                                <input type="text" id="firstName" placeholder="John" required>
+                                <div class="input-hint">Minimum 2 characters</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">
+                                    <i class="fas fa-user"></i> Last Name
+                                </label>
+                                <input type="text" id="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email Address
+                            </label>
+                            <input type="email" id="email" placeholder="john@example.com" required>
+                            <div class="input-icon">
+                                <i class="fas fa-check-circle valid-icon"></i>
+                                <i class="fas fa-exclamation-circle error-icon"></i>
+                            </div>
+                            <div class="input-hint">We'll send your welcome email here</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Phone Number
+                            </label>
+                            <input type="tel" id="phone" placeholder="(123) 456-7890">
+                            <div class="input-hint">Optional - for delivery updates</div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">
+                                    <i class="fas fa-lock"></i> Password
+                                </label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="password" placeholder="Create a password" required>
+                                    <button type="button" class="toggle-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-bar"></div>
+                                    <span class="strength-text">Password strength</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword">
+                                    <i class="fas fa-lock"></i> Confirm Password
+                                </label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                                    <button type="button" class="toggle-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-match">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Passwords match</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="birthday">
+                                <i class="fas fa-birthday-cake"></i> Birthday
+                            </label>
+                            <input type="date" id="birthday">
+                            <div class="input-hint">Get a special treat on your birthday!</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" checked>
+                                <span>Send me exclusive offers, new product announcements, and baking tips</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" required>
+                                <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-register">
+                            <i class="fas fa-user-plus"></i> Create Account
+                            <div class="btn-spinner"></div>
+                        </button>
+                        
+                        <div class="form-divider">
+                            <span>Or sign up with</span>
+                        </div>
+                        
+                        <div class="social-register">
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i> Google
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i> Facebook
+                            </button>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <p>Already have an account? <a href="login.html" class="login-link">Sign in here</a></p>
+                        </div>
+                    </form>
+                    
+                    <form id="wholesaleForm" class="register-form" data-type="wholesale" id="wholesale-form">
+                        <div class="form-header">
+                            <h2>Wholesale Application</h2>
+                            <p>For businesses and bulk orders</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessName">
+                                <i class="fas fa-building"></i> Business Name
+                            </label>
+                            <input type="text" id="businessName" placeholder="Your business name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessType">
+                                <i class="fas fa-store"></i> Business Type
+                            </label>
+                            <select id="businessType" required>
+                                <option value="">Select type</option>
+                                <option value="cafe">Cafe / Coffee Shop</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="hotel">Hotel / Resort</option>
+                                <option value="catering">Catering Service</option>
+                                <option value="retail">Retail Store</option>
+                                <option value="corporate">Corporate Office</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">
+                                    <i class="fas fa-user-tie"></i> Contact Person
+                                </label>
+                                <input type="text" id="contactName" placeholder="Full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="businessEmail">
+                                    <i class="fas fa-envelope"></i> Business Email
+                                </label>
+                                <input type="email" id="businessEmail" placeholder="contact@business.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="businessPhone">
+                                    <i class="fas fa-phone"></i> Business Phone
+                                </label>
+                                <input type="tel" id="businessPhone" placeholder="(123) 456-7890" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="taxId">
+                                    <i class="fas fa-file-invoice"></i> Tax ID / EIN
+                                </label>
+                                <input type="text" id="taxId" placeholder="Optional">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="monthlyVolume">
+                                <i class="fas fa-chart-bar"></i> Estimated Monthly Order Volume
+                            </label>
+                            <select id="monthlyVolume" required>
+                                <option value="">Select volume</option>
+                                <option value="500-1000">Rs5000 - Rs10000</option>
+                                <option value="1000-5000">Rs10000 - Rs15000</option>
+                                <option value="5000-10000">Rs15000 - Rs20000</option>
+                                <option value="10000+">Rs20,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="requirements">
+                                <i class="fas fa-clipboard-list"></i> Special Requirements
+                            </label>
+                            <textarea id="requirements" placeholder="Any special packaging, delivery, or product requirements..." rows="3"></textarea>
+                        </div>
+                        
+                        <div class="subscription-options">
+                            <h3><i class="fas fa-box"></i> Preferred Subscription Plan</h3>
+                            <div class="plan-options">
+                                <label class="plan-option">
+                                    <input type="radio" name="subscription" value="starter" checked>
+                                    <div class="plan-card">
+                                        <div class="plan-name">Starter</div>
+                                        <div class="plan-price">$49<span>/month</span></div>
+                                        <div class="plan-desc">30% discount • $200 minimum</div>
+                                    </div>
+                                </label>
+                                
+                                <label class="plan-option">
+                                    <input type="radio" name="subscription" value="pro">
+                                    <div class="plan-card popular">
+                                        <div class="popular-badge">RECOMMENDED</div>
+                                        <div class="plan-name">Professional</div>
+                                        <div class="plan-price">$99<span>/month</span></div>
+                                        <div class="plan-desc">40% discount • No minimum</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="wholesaleTerms" required>
+                                <span>I agree to the <a href="#">Wholesale Terms</a> and understand this is a subscription service</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="contactConsent">
+                                <span>A CloudBake representative may contact me to discuss my application</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-register wholesale">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                            <div class="btn-spinner"></div>
+                        </button>
+                        
+                        <div class="form-footer">
+                            <p><i class="fas fa-info-circle"></i> Applications are reviewed within 1-2 business days</p>
+                            <p>Already have a wholesale account? <a href="login.html" class="login-link">Sign in here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="register-modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-success">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 id="modalTitle">Welcome to CloudBake!</h2>
+                <p id="modalMessage">Your account has been created successfully.</p>
+                
+                <div class="welcome-gift">
+                    <div class="gift-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="gift-content">
+                        <h3>Welcome Gift!</h3>
+                        <p>You've earned <span class="points">100</span> bonus points to start your loyalty journey</p>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn-secondary" id="continueShopping">
+                        <i class="fas fa-shopping-bag"></i> Browse Menu
+                    </button>
+                    <button class="btn-primary" id="goToDashboard">
+                        <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+                    </button>
+                </div>
+                
+                <div class="modal-next">
+                    <p><i class="fas fa-lightbulb"></i> Next: Complete your profile to earn extra points!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/loader.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

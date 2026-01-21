@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
@@ -434,13 +435,40 @@
         </div>
     </footer>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <span>Added to bag!</span>
+    <!-- Cart Sidebar -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+        <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+        <button class="close-cart" id="close-cart">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
+    <div class="cart-body">
+        <div class="cart-empty" id="cart-empty">
+            <i class="fas fa-shopping-bag"></i>
+            <p>Your cart is empty</p>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be inserted here -->
+        </div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-price">NPR 0</span>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">
+            <i class="fas fa-lock"></i> Checkout
+        </button>
+    </div>
+</div>
 
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
     <script src="js/script.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/menu.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>

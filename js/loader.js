@@ -27,17 +27,41 @@
       }, 500); 
     }, 1500);
     
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        if (!loadingOverlay.classList.contains('fade-out')) {
-          loadingOverlay.classList.add('fade-out');
-          body.classList.add('content-loaded');
-          setTimeout(function() {
-            loadingOverlay.style.display = 'none';
-          }, 500);
-        }
-      }, 3000); 
-    });
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loading-overlay');
+    const body = document.body;
+    
+    if (loader) {
+        
+        requestAnimationFrame(function() {
+            
+            setTimeout(function() {
+                
+                loader.style.opacity = '0';
+                loader.style.transition = 'opacity 0.5s ease';
+                
+                
+                setTimeout(function() {
+                    body.style.opacity = '1';
+                }, 200); 
+                
+                
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                    
+                    
+                    body.style.visibility = 'visible';
+                    body.style.opacity = '1';
+                    
+                    
+                    document.querySelectorAll('.animate-in').forEach(el => {
+                        el.style.animationPlayState = 'running';
+                    });
+                }, 500);
+            }, 100);
+        });
+    }
+});
     
     setupNavigationLoader();
   });

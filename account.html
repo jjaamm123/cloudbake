@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | CloudBake</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="loading-content">
+            <div class="donut-loader">
+                <img src="img/donut-1-svgrepo-com.svg" alt="Loading..." class="donut-svg">
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+            <p class="loading-text">Loading your account...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-cloud"></i>
+                <span>CloudBake</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#menu">Menu</a></li>
+                <li><a href="index.html#custom">Create</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" class="active"><i class="fas fa-user"></i> Account</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Account Header -->
+    <section class="account-header">
+        <div class="container">
+            <div class="account-hero">
+                <div class="account-avatar">
+                    <img src="img/icon.jpg" alt="Profile Picture" id="profile-pic">
+                    <button class="edit-pic-btn" id="edit-pic-btn">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="account-info">
+                    <h1 id="account-name">Alex Morgan</h1>
+                    <p class="account-email" id="account-email">alex.morgan@example.com</p>
+                    <div class="account-stats">
+                        <div class="account-stat">
+                            <i class="fas fa-shopping-bag"></i>
+                            <div>
+                                <h3 id="total-orders">12</h3>
+                                <p>Total Orders</p>
+                            </div>
+                        </div>
+                        <div class="account-stat">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <h3 id="member-since">2022</h3>
+                                <p>Member Since</p>
+                            </div>
+                        </div>
+                        <div class="account-stat">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h3 id="rewards-points">850</h3>
+                                <p>Reward Points</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Account Content -->
+    <section class="account-content">
+        <div class="container">
+            <div class="account-tabs">
+                <button class="tab-btn active" data-tab="profile">
+                    <i class="fas fa-user"></i> Profile
+                </button>
+                <button class="tab-btn" data-tab="orders">
+                    <i class="fas fa-shopping-bag"></i> Orders
+                </button>
+                <button class="tab-btn" data-tab="addresses">
+                    <i class="fas fa-map-marker-alt"></i> Addresses
+                </button>
+                <button class="tab-btn" data-tab="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+            </div>
+
+            <div class="tab-content active" id="profile-tab">
+                <div class="form-card">
+                    <h2><i class="fas fa-user-edit"></i> Edit Profile</h2>
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="full-name"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="full-name" value="Alex Morgan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" value="alex.morgan@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" id="phone" value="(555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday"><i class="fas fa-birthday-cake"></i> Birthday</label>
+                            <input type="date" id="birthday" value="1990-05-15">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </form>
+                </div>
+
+                <div class="form-card">
+                    <h2><i class="fas fa-lock"></i> Change Password</h2>
+                    <form id="password-form">
+                        <div class="form-group">
+                            <label for="current-password"><i class="fas fa-key"></i> Current Password</label>
+                            <input type="password" id="current-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password"><i class="fas fa-key"></i> New Password</label>
+                            <input type="password" id="new-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password"><i class="fas fa-key"></i> Confirm New Password</label>
+                            <input type="password" id="confirm-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i> Update Password
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-content" id="orders-tab">
+                <div class="orders-list">
+                    <h2><i class="fas fa-history"></i> Order History</h2>
+                    
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <h3>Order #CB-78945</h3>
+                                <p class="order-date">March 15, 2024</p>
+                            </div>
+                            <span class="order-status delivered">Delivered</span>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Cloud Nine Cake">
+                                <div>
+                                    <h4>Cloud Nine Cake</h4>
+                                    <p>Qty: 1 × $24.99</p>
+                                </div>
+                                <span class="item-price">$24.99</span>
+                            </div>
+                            <div class="order-item">
+                                <img src="img/donuts.jpg" alt="Donuts">
+                                <div>
+                                    <h4>Fresh-Baked Donuts</h4>
+                                    <p>Qty: 2 × $7.50</p>
+                                </div>
+                                <span class="item-price">$15.00</span>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="order-total">
+                                <span>Total:</span>
+                                <span>$39.99</span>
+                            </div>
+                            <button class="btn btn-secondary btn-small">
+                                <i class="fas fa-redo"></i> Reorder
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <h3>Order #CB-78944</h3>
+                                <p class="order-date">March 10, 2024</p>
+                            </div>
+                            <span class="order-status preparing">Preparing</span>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="img/muffins.jpg" alt="Muffins">
+                                <div>
+                                    <h4>Fluffy Muffins</h4>
+                                    <p>Qty: 1 × $18.00</p>
+                                </div>
+                                <span class="item-price">$18.00</span>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="order-total">
+                                <span>Total:</span>
+                                <span>$18.00</span>
+                            </div>
+                            <button class="btn btn-secondary btn-small" disabled>
+                                <i class="fas fa-clock"></i> In Progress
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <h3>Order #CB-78943</h3>
+                                <p class="order-date">March 5, 2024</p>
+                            </div>
+                            <span class="order-status delivered">Delivered</span>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="img/croissant.jpg" alt="Croissant">
+                                <div>
+                                    <h4>Fresh-Baked Croissant</h4>
+                                    <p>Qty: 3 × $5.00</p>
+                                </div>
+                                <span class="item-price">$15.00</span>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <div class="order-total">
+                                <span>Total:</span>
+                                <span>$15.00</span>
+                            </div>
+                            <button class="btn btn-secondary btn-small">
+                                <i class="fas fa-redo"></i> Reorder
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="addresses-tab">
+                <div class="addresses-list">
+                    <h2><i class="fas fa-map"></i> Saved Addresses</h2>
+                    
+                    <div class="address-card active">
+                        <div class="address-header">
+                            <h3><i class="fas fa-home"></i> Home Address</h3>
+                            <button class="btn-icon edit-address">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <p class="address-text">
+                            123 Baker Street<br>
+                            Suite 456<br>
+                            New York, NY 10001<br>
+                            United States
+                        </p>
+                        <div class="address-footer">
+                            <span class="address-default">Default</span>
+                            <button class="btn btn-secondary btn-small">
+                                <i class="fas fa-truck"></i> Deliver Here
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="address-card">
+                        <div class="address-header">
+                            <h3><i class="fas fa-briefcase"></i> Work Address</h3>
+                            <button class="btn-icon edit-address">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <p class="address-text">
+                            456 Cloud Avenue<br>
+                            Tech Park, Floor 12<br>
+                            Brooklyn, NY 11201<br>
+                            United States
+                        </p>
+                        <div class="address-footer">
+                            <button class="btn btn-secondary btn-small">
+                                <i class="fas fa-check"></i> Set as Default
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" id="add-address-btn">
+                        <i class="fas fa-plus"></i> Add New Address
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="settings-tab">
+                <div class="settings-list">
+                    <h2><i class="fas fa-sliders-h"></i> Account Settings</h2>
+                    
+                    <div class="setting-item">
+                        <div>
+                            <h3><i class="fas fa-bell"></i> Notifications</h3>
+                            <p>Receive order updates and promotions</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div>
+                            <h3><i class="fas fa-envelope"></i> Email Newsletter</h3>
+                            <p>Subscribe to our weekly newsletter</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div>
+                            <h3><i class="fas fa-moon"></i> Dark Mode</h3>
+                            <p>Switch to dark theme</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div>
+                            <h3><i class="fas fa-language"></i> Language</h3>
+                            <p>Preferred language</p>
+                        </div>
+                        <select class="select-input">
+                            <option selected>English</option>
+                            <option>Spanish</option>
+                            <option>French</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item danger">
+                        <div>
+                            <h3><i class="fas fa-trash-alt"></i> Delete Account</h3>
+                            <p>Permanently delete your account and data</p>
+                        </div>
+                        <button class="btn btn-danger" id="delete-account-btn">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-cloud"></i>
+                        <span>CloudBake</span>
+                    </div>
+                    <p>Heavenly pastries from our cloud kitchen to your home.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#menu">Menu</a>
+                    <a href="index.html#custom">Create</a>
+                    <a href="index.html#reviews">Reviews</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> hello@cloudbake.com</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-BAKE</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cloud Kitchen Network</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CloudBake. All rights reserved.</p>
+                <p>Student Project | Academic Use</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span>Changes saved successfully!</span>
+    </div>
+
+    <!-- Cart Sidebar (copied from index) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-body">
+            <div class="cart-empty" id="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your cart is empty</p>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be populated here -->
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">NPR 0</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-lock"></i> Checkout
+            </button>
+        </div>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/account.js"></script>
+</body>
+</html>

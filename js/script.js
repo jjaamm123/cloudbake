@@ -183,3 +183,149 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const userData = JSON.parse(localStorage.getItem('cloudbakeUser'));
+    
+    if (isLoggedIn && userData) {
+        updateUIForLoggedInUser(userData);
+    }
+});
+
+function updateUIForLoggedInUser(user) {
+    const navIcons = document.querySelector('.nav-icons');
+    if (navIcons) {
+        const userMenu = document.createElement('div');
+        userMenu.className = 'user-menu';
+        userMenu.innerHTML = `
+            <button class="user-btn">
+                <i class="fas fa-user"></i>
+                <span>${user.name.split(' ')[0]}</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="user-dropdown">
+                <a href="account.html" class="dropdown-item">
+                    <i class="fas fa-user-circle"></i> My Account
+                </a>
+                <a href="loyalty.html" class="dropdown-item">
+                    <i class="fas fa-crown"></i> Loyalty (${user.points} pts)
+                </a>
+                ${user.role === 'wholesale' ? `
+                <a href="wholesale.html" class="dropdown-item">
+                    <i class="fas fa-store"></i> Wholesale Portal
+                </a>
+                ` : ''}
+                <hr>
+                <a href="#" class="dropdown-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        `;
+        
+        const cartBtn = document.querySelector('.cart-btn');
+        navIcons.insertBefore(userMenu, cartBtn);
+        
+        const logoutBtn = userMenu.querySelector('.logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('cloudbakeUser');
+                location.reload();
+            });
+        }
+        
+        const userBtn = userMenu.querySelector('.user-btn');
+        const dropdown = userMenu.querySelector('.user-dropdown');
+        
+        userBtn.addEventListener('click', function() {
+            dropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (!userMenu.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+    
+    const userMenuStyle = document.createElement('style');
+    userMenuStyle.textContent = `
+        .user-menu {
+            position: relative;
+            margin-right: 1rem;
+        }
+        
+        .user-btn {
+            background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .user-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 175, 189, 0.3);
+        }
+        
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-width: 200px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .user-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.5rem;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-item:hover {
+            background: #f8f9fa;
+            color: #ff6b6b;
+        }
+        
+        .dropdown-item i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .user-dropdown hr {
+            margin: 0.5rem 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+        
+        .logout-btn {
+            color: #ff4757 !important;
+        }
+    `;
+    document.head.appendChild(userMenuStyle);
+}

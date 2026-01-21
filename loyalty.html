@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudBake | Loyalty Rewards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loyalty.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div id="loading-overlay">
+        <div class="loading-content">
+            <div class="donut-loader">
+                <img src="img/donut-1-svgrepo-com.svg" alt="Loading..." class="donut-svg">
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+            <p class="loading-text">Loading sweet rewards...</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-cloud"></i>
+                <span>CloudBake</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="index.html#custom">Create</a></li>
+                <li><a href="loyalty.html" class="active">Rewards</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="loyalty-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">
+                    <i class="fas fa-crown"></i> CloudBake Rewards
+                </h1>
+                <p class="header-subtitle">Earn sweet points with every purchase and unlock exclusive benefits!</p>
+                
+                <div class="user-points-card" id="user-points-card">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="loyalty-tiers">
+        <div class="container">
+            <h2 class="section-title">Reward Tiers</h2>
+            <p class="section-subtitle">Level up your rewards with every purchase</p>
+            
+            <div class="tiers-grid">
+                <div class="tier-card silver">
+                    <div class="tier-header">
+                        <div class="tier-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Silver Tier</h3>
+                        <p class="tier-requirements">0 - 999 points</p>
+                    </div>
+                    <ul class="tier-benefits">
+                        <li><i class="fas fa-check"></i> 1 point per $1 spent</li>
+                        <li><i class="fas fa-check"></i> Birthday treat</li>
+                        <li><i class="fas fa-check"></i> Early access to new items</li>
+                    </ul>
+                </div>
+                
+                <div class="tier-card gold">
+                    <div class="tier-header">
+                        <div class="tier-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Gold Tier</h3>
+                        <p class="tier-requirements">1,000 - 2,999 points</p>
+                    </div>
+                    <ul class="tier-benefits">
+                        <li><i class="fas fa-check"></i> 1.5 points per $1 spent</li>
+                        <li><i class="fas fa-check"></i> Free delivery on orders over $20</li>
+                        <li><i class="fas fa-check"></i> Exclusive seasonal treats</li>
+                        <li><i class="fas fa-check"></i> Priority customer support</li>
+                    </ul>
+                </div>
+                
+                <div class="tier-card platinum active">
+                    <div class="tier-header">
+                        <div class="tier-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Platinum Tier</h3>
+                        <p class="tier-requirements">3,000+ points</p>
+                    </div>
+                    <ul class="tier-benefits">
+                        <li><i class="fas fa-check"></i> 2 points per $1 spent</li>
+                        <li><i class="fas fa-check"></i> Free monthly treat</li>
+                        <li><i class="fas fa-check"></i> Custom cake discounts</li>
+                        <li><i class="fas fa-check"></i> VIP event invitations</li>
+                        <li><i class="fas fa-check"></i> Surprise gifts</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-labels">
+                    <span>Silver (0)</span>
+                    <span>Gold (1,000)</span>
+                    <span>Platinum (3,000)</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="tier-progress"></div>
+                </div>
+                <div class="current-points" id="current-tier-indicator">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rewards-marketplace">
+        <div class="container">
+            <h2 class="section-title">Redeem Your Points</h2>
+            <p class="section-subtitle">Exchange points for delicious rewards</p>
+            
+            <div class="rewards-filter">
+                <button class="filter-btn active" data-filter="all">All Rewards</button>
+                <button class="filter-btn" data-filter="discount">Discounts</button>
+                <button class="filter-btn" data-filter="freebies">Free Items</button>
+                <button class="filter-btn" data-filter="experiences">Experiences</button>
+            </div>
+            
+            <div class="rewards-grid" id="rewards-grid">
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>Make Purchases</h3>
+                    <p>Earn points every time you order from CloudBake. The more you spend, the more points you earn!</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Level Up</h3>
+                    <p>Accumulate points to unlock higher tiers with better benefits and earning rates.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Redeem Rewards</h3>
+                    <p>Use your points to get discounts, free items, and exclusive experiences.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Share & Earn More</h3>
+                    <p>Refer friends and share on social media to earn bonus points.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="earn-points">
+        <div class="container">
+            <h2 class="section-title">Earn Bonus Points</h2>
+            
+            <div class="bonus-actions">
+                <div class="bonus-card">
+                    <div class="bonus-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Refer a Friend</h3>
+                    <p>Get 500 points for each friend who signs up and makes a purchase</p>
+                    <button class="btn btn-primary" id="refer-friend">
+                        <i class="fas fa-share"></i> Get Referral Link
+                    </button>
+                </div>
+                
+                <div class="bonus-card">
+                    <div class="bonus-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Birthday Bonus</h3>
+                    <p>Get 250 bonus points during your birthday month</p>
+                    <button class="btn btn-primary" id="claim-birthday">
+                        <i class="fas fa-gift"></i> Claim Birthday Bonus
+                    </button>
+                </div>
+                
+                <div class="bonus-card">
+                    <div class="bonus-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Monthly Challenge</h3>
+                    <p>Complete monthly challenges to earn extra points</p>
+                    <button class="btn btn-primary" id="view-challenges">
+                        <i class="fas fa-trophy"></i> View Challenges
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="points-history">
+        <div class="container">
+            <div class="history-header">
+                <h2 class="section-title">Points History</h2>
+                <button class="btn btn-secondary" id="export-history">
+                    <i class="fas fa-download"></i> Export History
+                </button>
+            </div>
+            
+            <div class="history-table-container">
+                <table class="history-table" id="points-history-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Points</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-cloud"></i>
+                        <span>CloudBake</span>
+                    </div>
+                    <p>Heavenly pastries from our cloud kitchen to your home.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html#home">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="index.html#custom">Create</a>
+                    <a href="loyalty.html">Rewards</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> hello@cloudbake.com</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-BAKE</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cloud Kitchen Network</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CloudBake. All rights reserved.</p>
+                <p>Student Project | Academic Use</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-body">
+            <div class="cart-empty" id="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your cart is empty</p>
+            </div>
+            <div class="cart-items" id="cart-items">
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">NPR 0</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-lock"></i> Checkout
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="redeem-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="redeem-title">Redeem Reward</h2>
+                <button class="close-modal" id="close-redeem-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="redeem-modal-body">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="referral-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Share Your Referral Link</h2>
+                <button class="close-modal" id="close-referral-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="referral-link-container">
+                    <input type="text" id="referral-link" readonly value="https://cloudbake.com/ref/yourcode">
+                    <button class="btn btn-primary" id="copy-referral">
+                        <i class="fas fa-copy"></i> Copy Link
+                    </button>
+                </div>
+                <p class="referral-note">Share this link with friends. When they sign up and make their first purchase, you'll get 500 bonus points!</p>
+                <div class="referral-stats">
+                    <div class="stat">
+                        <h3 id="referral-count">0</h3>
+                        <p>Friends Referred</p>
+                    </div>
+                    <div class="stat">
+                        <h3 id="pending-points">0</h3>
+                        <p>Pending Points</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/loyalty.js"></script>
+</body>
+</html>

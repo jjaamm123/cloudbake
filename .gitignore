@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+*.log
+
+# Node
+node_modules/
+
+# Env
+.env
+
+# OS
+.DS_Store

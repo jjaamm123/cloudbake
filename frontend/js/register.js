@@ -267,32 +267,66 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function submitRegistration(formData) {
-        const submitBtn = document.querySelector('.btn-register:not([style*="display: none"])');
-        const spinner = submitBtn.querySelector('.btn-spinner');
-        
-        submitBtn.disabled = true;
-        spinner.style.display = 'block';
-        
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        const user = {
-            email: formData.type === 'customer' ? formData.email : formData.businessEmail,
+    const submitBtn = document.querySelector('.btn-register:not([style*="display: none"])');
+    const spinner = submitBtn.querySelector('.btn-spinner');
+    
+    // 1. Disable button to prevent double-clicks
+    submitBtn.disabled = true;
+    if (spinner) spinner.style.display = 'block';
+    
+    try {
+        // 2. Prepare the data for the backend
+        const payload = {
             name: formData.type === 'customer' ? `${formData.firstName} ${formData.lastName}` : formData.contactName,
-            role: formData.type === 'customer' ? 'customer' : 'wholesale_pending',
-            points: formData.type === 'customer' ? 100 : 500,
-            tier: 'bronze',
+            email: formData.type === 'customer' ? formData.email : formData.businessEmail,
+            password: document.getElementById('password').value, 
             type: formData.type,
-            ...formData
+            ...formData 
         };
+
+        // 3. THE CRITICAL FIX: Ensure this URL is exactly correct
+        const response = await fetch('http://localhost:5000/api/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        // 4. Check if the response is actually JSON before parsing
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("Server returned HTML instead of JSON. Check your API URL.");
+        }
+
+        const data = await response.json();
+
+        // 5. Handle Errors from the Backend
+        if (!response.ok) {
+            throw new Error(data.message || 'Registration failed');
+        }
+
+        // 6. Success! Save token and redirect
+        localStorage.setItem('cloudbakes_token', data.token);
+        localStorage.setItem('cloudbakes_user', JSON.stringify({
+            _id: data._id,
+            name: data.name,
+            email: data.email,
+            role: data.role,
+            points: data.points,
+            tier: data.tier
+        }));
         
-        localStorage.setItem('cloudbakeUser', JSON.stringify(user));
-        localStorage.setItem('isLoggedIn', 'true');
-        
-        showSuccessModal(user);
-        
+        showSuccessModal(data);
+
+    } catch (error) {
+        console.error('Registration Error:', error);
+        showToast(error.message, 'error');
+    } finally {
         submitBtn.disabled = false;
-        spinner.style.display = 'none';
+        if (spinner) spinner.style.display = 'none';
     }
+}
 
     function showSuccessModal(user) {
         if (user.type === 'customer') {

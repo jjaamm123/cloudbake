@@ -26,7 +26,7 @@ const STORAGE_KEYS = {
 };
 
 // Toggle password visibility
-togglePassword.addEventListener('click', function() {
+togglePassword.addEventListener('click', function () {
     const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordInput.setAttribute('type', type);
     this.classList.toggle('fa-eye');
@@ -64,7 +64,7 @@ function validateForm() {
 function showToast(message, type = 'success') {
     toast.textContent = message;
     toast.className = 'toast show';
-    
+
     if (type === 'error') {
         toast.style.background = '#ff4757';
     } else if (type === 'warning') {
@@ -72,7 +72,7 @@ function showToast(message, type = 'success') {
     } else {
         toast.style.background = '#4CAF50';
     }
-    
+
     setTimeout(() => {
         toast.classList.remove('show');
     }, 3000);
@@ -82,9 +82,9 @@ function showToast(message, type = 'success') {
 function showLoginSuccess(user) {
     userNameSpan.textContent = user.name;
     document.querySelector('.points').textContent = user.points || 0;
-    
+
     loginModal.style.display = 'flex';
-    
+
     // Auto-redirect after 3 seconds
     setTimeout(() => {
         redirectAfterLogin();
@@ -95,7 +95,7 @@ function showLoginSuccess(user) {
 function redirectAfterLogin() {
     // Check if there's a redirect URL stored (from protected pages)
     const redirectUrl = localStorage.getItem(STORAGE_KEYS.REDIRECT_URL);
-    
+
     if (redirectUrl) {
         // Clear the redirect URL
         localStorage.removeItem(STORAGE_KEYS.REDIRECT_URL);
@@ -118,13 +118,13 @@ function saveUserSession(userData, rememberMe = false) {
         points: userData.points || 0,
         tier: userData.tier || 'bronze'
     }));
-    
+
     if (rememberMe) {
         localStorage.setItem(STORAGE_KEYS.REMEMBERED_EMAIL, userData.email);
     } else {
         localStorage.removeItem(STORAGE_KEYS.REMEMBERED_EMAIL);
     }
-    
+
     // Update navbar if Auth class exists
     if (window.Auth && typeof Auth.updateNavbar === 'function') {
         Auth.updateNavbar();
@@ -132,22 +132,22 @@ function saveUserSession(userData, rememberMe = false) {
 }
 
 // Main login handler
-loginForm.addEventListener('submit', async function(e) {
+loginForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-    
+
     // Validate form
     if (!validateForm()) {
         return;
     }
-    
+
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
     const rememberMe = document.getElementById('remember').checked;
-    
+
     // Show loading state
     loginBtn.disabled = true;
     btnSpinner.style.display = 'block';
-    
+
     try {
         // Call backend login API
         const response = await fetch(AUTH_ENDPOINTS.LOGIN, {
@@ -161,32 +161,38 @@ loginForm.addEventListener('submit', async function(e) {
                 password: password
             })
         });
-        
+
         const data = await response.json();
-        
+
         // Handle response
         if (response.ok) {
             if (data.token) {
                 // Save user session
                 saveUserSession(data, rememberMe);
-                
+
                 // Show success
                 showToast('Login successful! Redirecting...');
                 showLoginSuccess(data);
-                
+
             } else {
                 // No token in response
                 showToast('Login failed: Invalid server response', 'error');
             }
+        } else if (response.status === 404) {
+            // User not found - Redirect to register
+            showToast('User not found. Redirecting to registration...', 'warning');
+            setTimeout(() => {
+                window.location.href = 'register.html';
+            }, 2000);
         } else {
             // API returned error
             showToast(data.message || `Login failed (${response.status})`, 'error');
         }
-        
+
     } catch (error) {
         // Network or server error
         console.error('Login error:', error);
-        
+
         if (error.name === 'TypeError' && error.message.includes('fetch')) {
             showToast('Cannot connect to server. Please check your connection.', 'error');
         } else {
@@ -200,23 +206,23 @@ loginForm.addEventListener('submit', async function(e) {
 });
 
 // Go Home button handler
-goHomeBtn.addEventListener('click', function() {
+goHomeBtn.addEventListener('click', function () {
     redirectAfterLogin();
 });
 
 // Social login buttons (placeholders for now)
-document.querySelector('.social-btn.google').addEventListener('click', function() {
+document.querySelector('.social-btn.google').addEventListener('click', function () {
     showToast('Google authentication will be available soon!', 'warning');
 });
 
-document.querySelector('.social-btn.facebook').addEventListener('click', function() {
+document.querySelector('.social-btn.facebook').addEventListener('click', function () {
     showToast('Facebook authentication will be available soon!', 'warning');
 });
 
 // Forgot password handler
-document.querySelector('.forgot-password').addEventListener('click', async function(e) {
+document.querySelector('.forgot-password').addEventListener('click', async function (e) {
     e.preventDefault();
-    
+
     const email = prompt('Enter your email to reset password:');
     if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         try {
@@ -225,7 +231,7 @@ document.querySelector('.forgot-password').addEventListener('click', async funct
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email })
             });
-            
+
             if (response.ok) {
                 showToast('Password reset link sent to your email! Check your inbox.');
             } else {
@@ -240,21 +246,21 @@ document.querySelector('.forgot-password').addEventListener('click', async funct
 });
 
 // Page load initialization
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     // Auto-fill remembered email
     const rememberedEmail = localStorage.getItem(STORAGE_KEYS.REMEMBERED_EMAIL);
     if (rememberedEmail) {
         emailInput.value = rememberedEmail;
         document.getElementById('remember').checked = true;
     }
-    
+
     // Animate features
     const features = document.querySelectorAll('.feature');
     features.forEach((feature, index) => {
         feature.style.animationDelay = `${index * 0.1}s`;
         feature.classList.add('animate-in');
     });
-    
+
     // Check if user is already logged in
     const token = localStorage.getItem(STORAGE_KEYS.TOKEN);
     if (token) {
@@ -269,7 +275,7 @@ async function autoValidateToken(token) {
         const response = await fetch(`${API_BASE_URL}/auth/validate`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
-        
+
         if (!response.ok) {
             // Token invalid, clear storage
             localStorage.removeItem(STORAGE_KEYS.TOKEN);
@@ -352,24 +358,24 @@ if (response.ok && data.token) {
         points: data.points || 100,  // ADD THIS
         tier: data.tier || 'bronze'   // ADD THIS
     }));
-    
+
     // Update navbar
     if (window.Auth && typeof Auth.updateNavbar === 'function') {
         Auth.updateNavbar();
     }
-    
+
     if (rememberMe) {
         localStorage.setItem('rememberedEmail', email);
     }
-    
+
     // Show success modal WITH POINTS
     userNameSpan.textContent = data.name;
     document.querySelector('.points').textContent = data.points || 100; // UPDATE THIS
-    
+
     loginModal.style.display = 'flex';
-    
+
     showToast('Login successful! Redirecting...');
-    
+
     // Redirect after 3 seconds
     setTimeout(() => {
         window.location.href = 'index.html';

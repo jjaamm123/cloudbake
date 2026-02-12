@@ -245,7 +245,7 @@ document.querySelector('.forgot-password').addEventListener('click', async funct
     }
 });
 
-// Page load initialization
+// Page load initialization REMEMBERED EMAIL, ANIMATIONS, TOKEN VALIDATION
 window.addEventListener('load', function () {
     // Auto-fill remembered email
     const rememberedEmail = localStorage.getItem(STORAGE_KEYS.REMEMBERED_EMAIL);
@@ -286,66 +286,6 @@ async function autoValidateToken(token) {
     }
 }
 
-// Add CSS for animations (if not already in your CSS file)
-const style = document.createElement('style');
-style.textContent = `
-    .feature.animate-in {
-        animation: slideInLeft 0.6s ease forwards;
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    
-    @keyframes slideInLeft {
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    
-    .toast {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background: #4CAF50;
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        transform: translateY(100px);
-        opacity: 0;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        font-weight: 500;
-        max-width: 400px;
-        word-wrap: break-word;
-    }
-    
-    .toast.show {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    
-    .btn-login:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-    }
-    
-    .btn-spinner {
-        display: none;
-        width: 20px;
-        height: 20px;
-        border: 3px solid rgba(255,255,255,0.3);
-        border-radius: 50%;
-        border-top-color: white;
-        animation: spin 1s ease-in-out infinite;
-        margin-left: 10px;
-    }
-    
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-`;
-document.head.appendChild(style);
 
 if (response.ok && data.token) {
     // Save token to localStorage
@@ -355,8 +295,8 @@ if (response.ok && data.token) {
         name: data.name,
         email: data.email,
         role: data.role,
-        points: data.points || 100,  // ADD THIS
-        tier: data.tier || 'bronze'   // ADD THIS
+        points: data.points || 100, 
+        tier: data.tier || 'bronze'   
     }));
 
     // Update navbar
@@ -370,7 +310,7 @@ if (response.ok && data.token) {
 
     // Show success modal WITH POINTS
     userNameSpan.textContent = data.name;
-    document.querySelector('.points').textContent = data.points || 100; // UPDATE THIS
+    document.querySelector('.points').textContent = data.points || 100; 
 
     loginModal.style.display = 'flex';
 

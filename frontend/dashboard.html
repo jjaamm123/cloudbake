@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudBake | My Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-cloud"></i><span>CloudBake</span></a>
+            <a href="index.html" style="text-decoration: none; color: #333; font-weight: 600;"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="profile-card">
+            <div class="profile-avatar"><i class="fas fa-user"></i></div>
+            <h2 id="user-name">Loading...</h2>
+            <p id="user-email" style="color: #666; margin-bottom: 15px;">...</p>
+            
+            <div style="border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px;">
+                <h3 style="font-size: 1.1rem; color: #333;">Loyalty Tier</h3>
+                <div id="loyalty-badge" class="loyalty-badge tier-bronze"><i class="fas fa-medal"></i> Bronze Member</div>
+                <p id="loyalty-text" style="font-size: 0.85rem; color: #666; margin-top: 10px;">Spend NPR 5000 more to reach Silver!</p>
+            </div>
+
+            <button class="logout-btn" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+
+        <div class="orders-card">
+            <h2><i class="fas fa-history"></i> My Order History</h2>
+            <div style="overflow-x: auto;">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-list">
+                        <tr><td colspan="4" style="text-align: center;">Loading your delicious history...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

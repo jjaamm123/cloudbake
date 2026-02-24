@@ -10,7 +10,7 @@ const products = [
     {
         name: "Cloud Nine Cake",
         description: "Fluffy vanilla sponge with cloud buttercream and delicate decorations.",
-        price: 24.99,
+        price: 1499, // NPR
         category: "cake",
         image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
         rating: 5.0,
@@ -19,7 +19,7 @@ const products = [
     {
         name: "Chocolate Fudge Cake",
         description: "Rich chocolate layers with fudge frosting and chocolate shavings.",
-        price: 22.99,
+        price: 1200, // NPR
         category: "cake",
         image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
         rating: 4.8,
@@ -28,7 +28,7 @@ const products = [
     {
         name: "Red Velvet Dream",
         description: "Classic red velvet with cream cheese frosting and red velvet crumbs.",
-        price: 26.99,
+        price: 1599, // NPR
         category: "cake",
         image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
         rating: 4.9,
@@ -56,7 +56,7 @@ const products = [
     {
         name: "Fruit Tart",
         description: "Sweet pastry crust filled with custard and topped with fresh seasonal fruits.",
-        price: 5.99,
+        price: 200, // NPR
         category: "pastry",
         image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
         rating: 4.6,
@@ -94,7 +94,7 @@ const products = [
     {
         name: "Artisan Sourdough",
         description: "Traditional sourdough with crisp crust and tangy, airy interior.",
-        price: 6.99,
+        price: 599, // NPR
         category: "breads",
         image: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
         rating: 4.8,
@@ -103,7 +103,7 @@ const products = [
     {
         name: "Buttery Brioche",
         description: "Rich, tender bread with high egg and butter content.",
-        price: 7.99,
+        price: 799, // NPR
         category: "breads",
         image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
         rating: 4.9,
@@ -113,7 +113,7 @@ const products = [
     {
         name: "Kulfi-Inspired Pastry",
         description: "Flaky pastry infused with traditional kulfi flavors and pistachios.",
-        price: 4.99,
+        price: 499, // NPR
         category: "seasonal",
         image: "img/o-kulfi.jpg",
         rating: 5.0,

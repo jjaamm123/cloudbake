@@ -52,6 +52,7 @@
             </div>
         </div>
     </nav>
+
     <main class="custom-maker-page">
         <div class="container">
             <div class="custom-header">
@@ -61,8 +62,82 @@
 
             <div class="custom-maker-content">
                 <div class="custom-options">
-                    <section class="option-section active" data-step="1">
-                        <h2><i class="fas fa-layer-group"></i> Cake Base & Size</h2>
+
+                    <!-- ===== MODE TOGGLE ===== -->
+                    <div class="mode-toggle">
+                        <button class="mode-tab active" data-mode="regular">
+                            <div class="mode-tab-icon"><i class="fas fa-birthday-cake"></i></div>
+                            <div class="mode-tab-text">
+                                <span>Regular Custom Cake</span>
+                                <small>Design your everyday special cake</small>
+                            </div>
+                        </button>
+                        <button class="mode-tab" data-mode="special">
+                            <div class="mode-tab-icon"><i class="fas fa-crown"></i></div>
+                            <div class="mode-tab-text">
+                                <span>Special Occasion Cake</span>
+                                <small>Weddings, Events &amp; Celebrations</small>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- ===== REGULAR PROGRESS BAR ===== -->
+                    <div class="custom-progress-bar" id="progress-regular">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span class="step-label">Base &amp; Size</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span class="step-label">Fillings</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span class="step-label">Icing</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="4">
+                            <div class="step-number">4</div>
+                            <span class="step-label">Extras</span>
+                        </div>
+                    </div>
+
+                    <!-- ===== SPECIAL PROGRESS BAR ===== -->
+                    <div class="custom-progress-bar" id="progress-special" style="display:none;">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span class="step-label">Occasion</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span class="step-label">Base</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span class="step-label">Icing</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="4">
+                            <div class="step-number">4</div>
+                            <span class="step-label">Decor</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="5">
+                            <div class="step-number">5</div>
+                            <span class="step-label">Details</span>
+                        </div>
+                    </div>
+
+                    <!-- ===================================== -->
+                    <!-- ===== REGULAR MODE SECTIONS ========= -->
+                    <!-- ===================================== -->
+
+                    <section class="option-section active" data-mode="regular" data-step="1">
+                        <h2><i class="fas fa-layer-group"></i> Cake Base &amp; Size</h2>
                         <p class="section-description">Choose your cake foundation and size.</p>
                         
                         <div class="option-grid">
@@ -126,8 +201,8 @@
                         </div>
                     </section>
 
-                    <section class="option-section" data-step="2">
-                        <h2><i class="fas fa-fill-drip"></i> Fillings & Layers</h2>
+                    <section class="option-section" data-mode="regular" data-step="2">
+                        <h2><i class="fas fa-fill-drip"></i> Fillings &amp; Layers</h2>
                         <p class="section-description">Choose up to 2 fillings for your cake layers.</p>
                         
                         <div class="option-grid">
@@ -190,8 +265,8 @@
                         </div>
                     </section>
 
-                    <section class="option-section" data-step="3">
-                        <h2><i class="fas fa-paint-roller"></i> Icing & Finish</h2>
+                    <section class="option-section" data-mode="regular" data-step="3">
+                        <h2><i class="fas fa-paint-roller"></i> Icing &amp; Finish</h2>
                         <p class="section-description">Choose the icing style and finish for your cake.</p>
                         
                         <div class="option-grid">
@@ -245,7 +320,7 @@
                         </div>
                     </section>
 
-                    <section class="option-section" data-step="4">
+                    <section class="option-section" data-mode="regular" data-step="4">
                         <h2><i class="fas fa-star"></i> Extra Decorations</h2>
                         <p class="section-description">Add final touches to your custom cake.</p>
                         
@@ -264,7 +339,7 @@
 
                             <div class="option-card" data-option="extra" data-value="edible-flowers" data-price="899">
                                 <div class="option-image">
-                                    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Edible Flowers">
+                                    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Edible Flowers">
                                 </div>
                                 <div class="option-content">
                                     <h3>Edible Flowers</h3>
@@ -276,7 +351,7 @@
 
                             <div class="option-card" data-option="extra" data-value="gold-leaf" data-price="1499">
                                 <div class="option-image">
-                                    <img src="https://images.unsplash.com/photo-1532117449862-4d292dbb2f9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gold Leaf">
+                                    <img src="https://images.unsplash.com/photo-1532117449862-4d292dbb2f9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gold Leaf">
                                 </div>
                                 <div class="option-content">
                                     <h3>24K Gold Leaf</h3>
@@ -286,9 +361,9 @@
                                 </div>
                             </div>
 
-                            <div class="option-card" data-option="extra" data-value="custom-message" data-price="4.99">
+                            <div class="option-card" data-option="extra" data-value="custom-message" data-price="499">
                                 <div class="option-image">
-                                    <img src="https://images.unsplash.com/photo-1519861531473-920034658307?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Custom Message">
+                                    <img src="https://images.unsplash.com/photo-1519861531473-920034658307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Custom Message">
                                 </div>
                                 <div class="option-content">
                                     <h3>Custom Message</h3>
@@ -316,8 +391,446 @@
                         </div>
                     </section>
 
+
+                    <!-- ===================================== -->
+                    <!-- ===== SPECIAL MODE SECTIONS ========= -->
+                    <!-- ===================================== -->
+
+                    <!-- SPECIAL STEP 1: Occasion Type & Tiers -->
+                    <section class="option-section" data-mode="special" data-step="1">
+                        <div class="special-badge"><i class="fas fa-crown"></i> Special Occasion Package</div>
+                        <h2><i class="fas fa-calendar-star"></i> Choose Your Occasion</h2>
+                        <p class="section-description">Select the occasion and how many tiers you'd like for your celebration cake.</p>
+
+                        <div class="option-grid">
+                            <div class="option-card" data-option="occasion" data-value="wedding" data-price="5000">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=600&q=80" alt="Wedding Cake">
+                                </div>
+                                <div class="option-content">
+                                    <div class="occasion-tag">Wedding</div>
+                                    <h3>Wedding Cake</h3>
+                                    <p>Elegant, timeless designs for your big day</p>
+                                    <div class="option-price">From Rs 5000</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="occasion" data-value="birthday-event" data-price="2000">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1558636508-e0ca3a6e9dc0?auto=format&fit=crop&w=600&q=80" alt="Birthday Event">
+                                </div>
+                                <div class="option-content">
+                                    <div class="occasion-tag">Birthday</div>
+                                    <h3>Birthday Gala Cake</h3>
+                                    <p>Grand statement cake for milestone birthdays</p>
+                                    <div class="option-price">From Rs 2000</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="occasion" data-value="corporate" data-price="3000">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=600&q=80" alt="Corporate Event">
+                                </div>
+                                <div class="option-content">
+                                    <div class="occasion-tag">Corporate</div>
+                                    <h3>Corporate Event Cake</h3>
+                                    <p>Professional branded cakes for company events</p>
+                                    <div class="option-price">From Rs 3000</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="occasion" data-value="anniversary" data-price="2500">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=600&q=80" alt="Anniversary Cake">
+                                </div>
+                                <div class="option-content">
+                                    <div class="occasion-tag">Anniversary</div>
+                                    <h3>Anniversary Cake</h3>
+                                    <p>Romantic cakes celebrating love milestones</p>
+                                    <div class="option-price">From Rs 2500</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="occasion" data-value="baby-shower" data-price="2000">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1515734392244-7b880d879c87?auto=format&fit=crop&w=600&q=80" alt="Baby Shower">
+                                </div>
+                                <div class="option-content">
+                                    <div class="occasion-tag">Baby Shower</div>
+                                    <h3>Baby Shower Cake</h3>
+                                    <p>Adorable sweet cakes for new arrivals</p>
+                                    <div class="option-price">From Rs 2000</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="occasion" data-value="engagement" data-price="3500">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1519411596010-56d72fd80ec4?auto=format&fit=crop&w=600&q=80" alt="Engagement Cake">
+                                </div>
+                                <div class="option-content">
+                                    <div class="occasion-tag">Engagement</div>
+                                    <h3>Engagement Cake</h3>
+                                    <p>Celebrate your love story in style</p>
+                                    <div class="option-price">From Rs 3500</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tier-options">
+                            <h3><i class="fas fa-layer-group"></i> Number of Tiers</h3>
+                            <p class="tier-note">More tiers serve more guests and make a grander impression.</p>
+                            <div class="tier-buttons">
+                                <button class="tier-btn active" data-tiers="1" data-price="0">
+                                    <span class="tier-icon">🎂</span>
+                                    <span class="tier-label">1 Tier</span>
+                                    <span class="tier-serves">Serves 15–20</span>
+                                    <span class="tier-price">Included</span>
+                                </button>
+                                <button class="tier-btn" data-tiers="2" data-price="3000">
+                                    <span class="tier-icon">🎂🎂</span>
+                                    <span class="tier-label">2 Tiers</span>
+                                    <span class="tier-serves">Serves 30–50</span>
+                                    <span class="tier-price">+Rs 3000</span>
+                                </button>
+                                <button class="tier-btn" data-tiers="3" data-price="6000">
+                                    <span class="tier-icon">🎂🎂🎂</span>
+                                    <span class="tier-label">3 Tiers</span>
+                                    <span class="tier-serves">Serves 60–80</span>
+                                    <span class="tier-price">+Rs 6000</span>
+                                </button>
+                                <button class="tier-btn" data-tiers="4" data-price="10000">
+                                    <span class="tier-icon">👑</span>
+                                    <span class="tier-label">4 Tiers</span>
+                                    <span class="tier-serves">Serves 100+</span>
+                                    <span class="tier-price">+Rs 10000</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SPECIAL STEP 2: Base Flavor -->
+                    <section class="option-section" data-mode="special" data-step="2">
+                        <div class="special-badge"><i class="fas fa-crown"></i> Special Occasion Package</div>
+                        <h2><i class="fas fa-layer-group"></i> Base Flavor</h2>
+                        <p class="section-description">Choose the perfect flavor foundation for your occasion cake.</p>
+
+                        <div class="option-grid">
+                            <div class="option-card" data-option="sp-base" data-value="sp-vanilla-sponge" data-price="500">
+                                <div class="option-image">
+                                    <img src="img/vanilla-c.jpg" alt="Vanilla Sponge">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Vanilla Cloud Sponge</h3>
+                                    <p>Light and fluffy vanilla sponge cake</p>
+                                    <div class="option-price">+ Rs 500</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="sp-base" data-value="sp-chocolate-fudge" data-price="700">
+                                <div class="option-image">
+                                    <img src="img/chocolate-fudge.jpg" alt="Chocolate Fudge">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Chocolate Fudge</h3>
+                                    <p>Rich and moist chocolate cake</p>
+                                    <div class="option-price">+ Rs 700</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="sp-base" data-value="sp-red-velvet" data-price="1200">
+                                <div class="option-image">
+                                    <img src="img/red-velvet.jpg" alt="Red Velvet">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Red Velvet</h3>
+                                    <p>Classic red velvet with cream cheese notes</p>
+                                    <div class="option-price">+ Rs 1200</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="sp-base" data-value="sp-carrot-cake" data-price="1500">
+                                <div class="option-image">
+                                    <img src="img/carrot-cake.jpg" alt="Carrot Cake">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Carrot Cake</h3>
+                                    <p>Spiced carrot cake with walnuts</p>
+                                    <div class="option-price">+ Rs 1500</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card premium-card" data-option="sp-base" data-value="sp-champagne-rose" data-price="1800">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1571506165871-ee72a35bc9d4?auto=format&fit=crop&w=600&q=80" alt="Champagne Rose Sponge">
+                                </div>
+                                <div class="option-content">
+                                    <div class="premium-badge">✦ Premium</div>
+                                    <h3>Champagne &amp; Rose Sponge</h3>
+                                    <p>Delicate champagne-infused sponge with rosewater</p>
+                                    <div class="option-price">+ Rs 1800</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card premium-card" data-option="sp-base" data-value="sp-almond-pistachio" data-price="1600">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80" alt="Almond Pistachio">
+                                </div>
+                                <div class="option-content">
+                                    <div class="premium-badge">✦ Premium</div>
+                                    <h3>Almond &amp; Pistachio</h3>
+                                    <p>Nutty almond sponge with pistachio cream</p>
+                                    <div class="option-price">+ Rs 1600</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SPECIAL STEP 3: Icing & Finish -->
+                    <section class="option-section" data-mode="special" data-step="3">
+                        <div class="special-badge"><i class="fas fa-crown"></i> Special Occasion Package</div>
+                        <h2><i class="fas fa-paint-roller"></i> Icing &amp; Finish</h2>
+                        <p class="section-description">Choose a finish that suits your occasion's style and elegance.</p>
+
+                        <div class="option-grid">
+                            <div class="option-card" data-option="sp-icing" data-value="sp-buttercream" data-price="799">
+                                <div class="option-image">
+                                    <img src="img/cream.jpg" alt="Buttercream">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Cloud Buttercream</h3>
+                                    <p>Fluffy vanilla buttercream icing</p>
+                                    <div class="option-price">+ Rs 799</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="sp-icing" data-value="sp-cream-cheese-frosting" data-price="899">
+                                <div class="option-image">
+                                    <img src="img/cheesefrost.jpg" alt="Cream Cheese Frosting">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Cream Cheese Frosting</h3>
+                                    <p>Tangy cream cheese frosting</p>
+                                    <div class="option-price">+ Rs 899</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="sp-icing" data-value="sp-fondant" data-price="1299">
+                                <div class="option-image">
+                                    <img src="img/smooth fondant.jpg" alt="Fondant">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Smooth Fondant</h3>
+                                    <p>Premium rolled fondant finish</p>
+                                    <div class="option-price">+ Rs 1299</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="sp-icing" data-value="sp-ganache-glaze" data-price="999">
+                                <div class="option-image">
+                                    <img src="img/ganache.jpg" alt="Chocolate Ganache">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Chocolate Ganache Glaze</h3>
+                                    <p>Shiny chocolate ganache finish</p>
+                                    <div class="option-price">+ Rs 999</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card premium-card" data-option="sp-icing" data-value="sp-royal-icing" data-price="1499">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=600&q=80" alt="Royal Icing">
+                                </div>
+                                <div class="option-content">
+                                    <div class="premium-badge">✦ Premium</div>
+                                    <h3>Royal Icing</h3>
+                                    <p>Classic white royal icing — timeless for weddings</p>
+                                    <div class="option-price">+ Rs 1499</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card premium-card" data-option="sp-icing" data-value="sp-metallic-fondant" data-price="1799">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1557308536-ee471ef2c390?auto=format&fit=crop&w=600&q=80" alt="Metallic Fondant">
+                                </div>
+                                <div class="option-content">
+                                    <div class="premium-badge">✦ Premium</div>
+                                    <h3>Metallic Sheen Fondant</h3>
+                                    <p>Luxurious gold or silver metallic fondant finish</p>
+                                    <div class="option-price">+ Rs 1799</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SPECIAL STEP 4: Event Decorations -->
+                    <section class="option-section" data-mode="special" data-step="4">
+                        <div class="special-badge"><i class="fas fa-crown"></i> Special Occasion Package</div>
+                        <h2><i class="fas fa-gem"></i> Event Decorations</h2>
+                        <p class="section-description">Select any number of premium decorations to make your cake truly unforgettable.</p>
+
+                        <div class="option-grid">
+                            <div class="option-card" data-option="event-decor" data-value="sugar-flowers" data-price="1500">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" alt="Sugar Flowers">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Sugar Flowers</h3>
+                                    <p>Handcrafted sugar blooms in your color palette</p>
+                                    <div class="option-price">+ Rs 1500</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="event-decor" data-value="fondant-figurines" data-price="2000">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80" alt="Fondant Figurines">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Fondant Figurines</h3>
+                                    <p>Custom sculpted fondant characters or couples</p>
+                                    <div class="option-price">+ Rs 2000</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="event-decor" data-value="monogram-design" data-price="1200">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=600&q=80" alt="Monogram">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Monogram &amp; Initials</h3>
+                                    <p>Elegant custom monogram in fondant or chocolate</p>
+                                    <div class="option-price">+ Rs 1200</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="event-decor" data-value="personalized-topper" data-price="800">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1515734392244-7b880d879c87?auto=format&fit=crop&w=600&q=80" alt="Personalized Topper">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Personalized Cake Topper</h3>
+                                    <p>Custom name or message topper (acrylic or fondant)</p>
+                                    <div class="option-price">+ Rs 800</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="event-decor" data-value="pearl-lace" data-price="1800">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=600&q=80" alt="Pearl Lace">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Pearl &amp; Lace Detail</h3>
+                                    <p>Intricate lace patterns with pearl accents</p>
+                                    <div class="option-price">+ Rs 1800</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+
+                            <div class="option-card" data-option="event-decor" data-value="edible-print" data-price="999">
+                                <div class="option-image">
+                                    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80" alt="Edible Print">
+                                </div>
+                                <div class="option-content">
+                                    <h3>Themed Edible Print</h3>
+                                    <p>Custom photo or design printed on edible paper</p>
+                                    <div class="option-price">+ Rs 999</div>
+                                    <button class="select-btn">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SPECIAL STEP 5: Event Details -->
+                    <section class="option-section" data-mode="special" data-step="5">
+                        <div class="special-badge"><i class="fas fa-crown"></i> Special Occasion Package</div>
+                        <h2><i class="fas fa-clipboard-list"></i> Event Details</h2>
+                        <p class="section-description">Tell us about your event so we can make your cake perfect.</p>
+
+                        <div class="event-details-form">
+                            <div class="event-details-grid">
+                                <div class="event-field">
+                                    <label for="event-date"><i class="fas fa-calendar-alt"></i> Event Date</label>
+                                    <input type="date" id="event-date" class="event-input" placeholder="Select date">
+                                </div>
+                                <div class="event-field">
+                                    <label for="guest-count"><i class="fas fa-users"></i> Expected Guests</label>
+                                    <select id="guest-count" class="event-input">
+                                        <option value="">Select range</option>
+                                        <option value="10-20">10 – 20 guests</option>
+                                        <option value="20-50">20 – 50 guests</option>
+                                        <option value="50-100">50 – 100 guests</option>
+                                        <option value="100-200">100 – 200 guests</option>
+                                        <option value="200+">200+ guests</option>
+                                    </select>
+                                </div>
+                                <div class="event-field">
+                                    <label for="color-theme"><i class="fas fa-palette"></i> Color Theme</label>
+                                    <input type="text" id="color-theme" class="event-input" placeholder="e.g. Blush pink &amp; gold">
+                                </div>
+                                <div class="event-field">
+                                    <label for="venue-type"><i class="fas fa-map-marker-alt"></i> Venue Type</label>
+                                    <select id="venue-type" class="event-input">
+                                        <option value="">Select venue</option>
+                                        <option value="banquet-hall">Banquet Hall</option>
+                                        <option value="outdoor">Outdoor / Garden</option>
+                                        <option value="hotel">Hotel Ballroom</option>
+                                        <option value="home">Home / Private</option>
+                                        <option value="office">Office / Corporate</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="special-requests">
+                                <h3><i class="fas fa-comment-alt"></i> Special Notes &amp; Requests</h3>
+                                <textarea id="sp-special-request" placeholder="Tell us your vision — color scheme, design inspiration, dietary restrictions, delivery instructions, or anything else..." rows="5"></textarea>
+                            </div>
+
+                            <div class="image-upload">
+                                <h3><i class="fas fa-image"></i> Upload Inspiration Image</h3>
+                                <div class="upload-area" id="sp-upload-area">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Drop your inspiration image here or click to browse</p>
+                                    <p class="upload-note">JPG, PNG up to 5MB — reference photos help us match your vision</p>
+                                    <input type="file" id="sp-image-upload" accept="image/*" hidden>
+                                </div>
+                                <div class="preview-container" id="sp-preview-container"></div>
+                            </div>
+
+                            <div class="event-info-note">
+                                <i class="fas fa-info-circle"></i>
+                                <div>
+                                    <strong>Special Occasion cakes require 5–7 days advance notice.</strong>
+                                    <p>Our team will call you within 24 hours to confirm design details, finalize pricing, and schedule your delivery or pickup.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ===== STEP NAVIGATION ===== -->
                     <div class="step-navigation">
-                        <button class="btn btn-secondary" id="prev-step">
+                        <button class="btn btn-secondary" id="prev-step" style="display:none;">
                             <i class="fas fa-arrow-left"></i> Previous
                         </button>
                         <button class="btn btn-primary" id="next-step">
@@ -329,6 +842,7 @@
                     </div>
                 </div>
 
+                <!-- ===== ORDER SUMMARY SIDEBAR ===== -->
                 <div class="custom-summary">
                     <div class="summary-header">
                         <h2><i class="fas fa-receipt"></i> Order Summary</h2>
@@ -336,30 +850,66 @@
                             <i class="fas fa-trash"></i> Clear All
                         </button>
                     </div>
+
+                    <!-- Save / View actions -->
+                    <div class="summary-actions">
+                        <button class="btn btn-secondary btn-small" id="save-draft">
+                            <i class="fas fa-save"></i> Save Draft
+                        </button>
+                        <button class="btn btn-secondary btn-small" id="view-summary">
+                            <i class="fas fa-eye"></i> View Summary
+                        </button>
+                    </div>
                     
                     <div class="summary-content">
-                        <div class="summary-item" id="summary-base">
+
+                        <!-- REGULAR summary items -->
+                        <div class="summary-item summary-regular" id="summary-base">
                             <h3>Cake Base</h3>
                             <p class="summary-placeholder">No selection yet</p>
-                            <span class="summary-price">Rs 0.00</span>
+                            <span class="summary-price">Rs 0</span>
                         </div>
-                        
-                        <div class="summary-item" id="summary-filling">
+                        <div class="summary-item summary-regular" id="summary-filling">
                             <h3>Fillings</h3>
                             <p class="summary-placeholder">No selection yet</p>
-                            <span class="summary-price">Rs 0.00</span>
+                            <span class="summary-price">Rs 0</span>
                         </div>
-                        
-                        <div class="summary-item" id="summary-icing">
+                        <div class="summary-item summary-regular" id="summary-icing">
                             <h3>Icing</h3>
                             <p class="summary-placeholder">No selection yet</p>
-                            <span class="summary-price">Rs 0.00</span>
+                            <span class="summary-price">Rs 0</span>
                         </div>
-                        
-                        <div class="summary-item" id="summary-extras">
+                        <div class="summary-item summary-regular" id="summary-extras">
                             <h3>Extras</h3>
                             <p class="summary-placeholder">No selection yet</p>
-                            <span class="summary-price">Rs 0.00</span>
+                            <span class="summary-price">Rs 0</span>
+                        </div>
+
+                        <!-- SPECIAL summary items -->
+                        <div class="summary-item summary-special" id="summary-occasion" style="display:none;">
+                            <h3>Occasion</h3>
+                            <p class="summary-placeholder">No selection yet</p>
+                            <span class="summary-price">Rs 0</span>
+                        </div>
+                        <div class="summary-item summary-special" id="summary-tiers" style="display:none;">
+                            <h3>Cake Tiers</h3>
+                            <p class="summary-placeholder">1 Tier (Standard)</p>
+                            <span class="summary-price">Included</span>
+                        </div>
+                        <div class="summary-item summary-special" id="summary-sp-base" style="display:none;">
+                            <h3>Base Flavor</h3>
+                            <p class="summary-placeholder">No selection yet</p>
+                            <span class="summary-price">Rs 0</span>
+                        </div>
+                        <div class="summary-item summary-special" id="summary-sp-icing" style="display:none;">
+                            <h3>Icing &amp; Finish</h3>
+                            <p class="summary-placeholder">No selection yet</p>
+                            <span class="summary-price">Rs 0</span>
+                        </div>
+                        <div class="summary-item summary-special" id="summary-event-decor" style="display:none;">
+                            <h3>Event Decorations</h3>
+                            <p class="summary-placeholder">None selected (optional)</p>
+                            <span class="summary-price">Rs 0</span>
                         </div>
                         
                         <div class="summary-divider"></div>
@@ -367,32 +917,55 @@
                         <div class="summary-total">
                             <h3>Estimated Total</h3>
                             <div class="total-breakdown">
-                                <div class="breakdown-item">
+                                <!-- Regular breakdown -->
+                                <div class="breakdown-item breakdown-regular" id="bd-subtotal-row">
                                     <span>Base Price</span>
-                                    <span id="subtotal">Rs 0.00</span>
+                                    <span id="subtotal">Rs 0</span>
                                 </div>
-                                <div class="breakdown-item">
+                                <div class="breakdown-item breakdown-regular">
                                     <span>Size Upgrade</span>
-                                    <span id="size-upgrade">Rs 0.00</span>
+                                    <span id="size-upgrade">Rs 0</span>
                                 </div>
-                                <div class="breakdown-item">
+                                <div class="breakdown-item breakdown-regular">
                                     <span>Layers Upgrade</span>
-                                    <span id="layers-upgrade">Rs 0.00</span>
+                                    <span id="layers-upgrade">Rs 0</span>
                                 </div>
+                                <!-- Special breakdown -->
+                                <div class="breakdown-item breakdown-special" style="display:none;">
+                                    <span>Occasion Package</span>
+                                    <span id="occasion-price">Rs 0</span>
+                                </div>
+                                <div class="breakdown-item breakdown-special" style="display:none;">
+                                    <span>Tier Upgrade</span>
+                                    <span id="tier-upgrade">Rs 0</span>
+                                </div>
+                                <div class="breakdown-item breakdown-special" style="display:none;">
+                                    <span>Cake &amp; Icing</span>
+                                    <span id="sp-cake-price">Rs 0</span>
+                                </div>
+                                <div class="breakdown-item breakdown-special" style="display:none;">
+                                    <span>Decorations</span>
+                                    <span id="decor-price">Rs 0</span>
+                                </div>
+                                <!-- Common -->
                                 <div class="breakdown-item">
                                     <span>Tax (8%)</span>
-                                    <span id="tax">Rs 0.00</span>
+                                    <span id="tax">Rs 0</span>
                                 </div>
                                 <div class="breakdown-item total">
                                     <span>Total</span>
-                                    <span id="final-total">Rs 0.00</span>
+                                    <span id="final-total">Rs 0</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="summary-note">
+                        <div class="summary-note" id="summary-note-regular">
                             <i class="fas fa-info-circle"></i>
-                            <p>Your cake will be ready in 24-48 hours. We'll contact you to confirm details.</p>
+                            <p>Your cake will be ready in 24–48 hours. We'll contact you to confirm details.</p>
+                        </div>
+                        <div class="summary-note summary-note-special" id="summary-note-special" style="display:none;">
+                            <i class="fas fa-crown"></i>
+                            <p>Special occasion cakes require 5–7 days. Our team will call you to confirm all details.</p>
                         </div>
                     </div>
                 </div>
@@ -400,6 +973,7 @@
         </div>
     </main>
 
+    <!-- ===== SUCCESS MODAL ===== -->
     <div class="modal" id="success-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -410,9 +984,9 @@
                 <div class="success-icon">
                     <i class="fas fa-birthday-cake"></i>
                 </div>
-                <h3>Your custom cake order has been received!</h3>
+                <h3 id="modal-title">Your custom cake order has been received!</h3>
                 <p>Order ID: <strong>CB-<span id="order-id">0000</span></strong></p>
-                <p>We'll contact you within 2 hours to confirm details and provide an exact quote.</p>
+                <p id="modal-message">We'll contact you within 2 hours to confirm details and provide an exact quote.</p>
                 <div class="modal-actions">
                     <button class="btn btn-primary" id="new-design">Start New Design</button>
                     <button class="btn btn-secondary" id="go-home">Back to Home</button>
@@ -422,36 +996,34 @@
     </div>
 
     <!-- Cart Sidebar -->
-<div class="cart-overlay" id="cart-overlay"></div>
-<div class="cart-sidebar" id="cart-sidebar">
-    <div class="cart-header">
-        <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
-        <button class="close-cart" id="close-cart">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    <div class="cart-body">
-        <div class="cart-empty" id="cart-empty">
-            <i class="fas fa-shopping-bag"></i>
-            <p>Your cart is empty</p>
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        <div class="cart-items" id="cart-items">
-            <!-- Cart items will be inserted here -->
+        <div class="cart-body">
+            <div class="cart-empty" id="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your cart is empty</p>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">NPR 0</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-lock"></i> Checkout
+            </button>
         </div>
     </div>
-    <div class="cart-footer">
-        <div class="cart-total">
-            <span>Total:</span>
-            <span id="cart-total-price">NPR 0</span>
-        </div>
-        <button class="checkout-btn" id="checkout-btn">
-            <i class="fas fa-lock"></i> Checkout
-        </button>
-    </div>
-</div>
 
-<!-- Toast Notification -->
-<div class="toast" id="toast"></div>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
 
     <script src="js/custom-maker.js"></script>
     <script src="js/loader.js"></script>

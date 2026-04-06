@@ -1,90 +1,396 @@
 
-        .dashboard-container {
-            max-width: 1200px;
-            margin: 120px auto 50px;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-        }
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
 
-        /* Profile Card */
-        .profile-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center;
-            height: fit-content;
-        }
-        .profile-avatar {
-            width: 100px;
-            height: 100px;
-            background: #ffe3e8;
-            color: #ff85a2;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin: 0 auto 15px;
-        }
-        .loyalty-badge {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-        .tier-bronze { background: #cd7f32; color: white; }
-        .tier-silver { background: #c0c0c0; color: #333; }
-        .tier-gold { background: #ffd700; color: #333; }
-        
-        .logout-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #ff4757;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 600;
-        }
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        /* Orders Card */
-        .orders-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .orders-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .orders-table th, .orders-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        .orders-table th {
-            color: #666;
-            font-weight: 600;
-        }
-        .status-badge {
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        .status-processing { background: #fff3cd; color: #856404; }
-        .status-delivered { background: #d4edda; color: #155724; }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #ff85a2;
+    font-size: 1.5rem;
+}
 
-        @media (max-width: 768px) {
-            .dashboard-container { grid-template-columns: 1fr; }
-            .orders-table { display: block; overflow-x: auto; }
-        }
+.logo i {
+    font-size: 1.4rem;
+}
+
+.logo span {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ff85a2;
+}
+
+.back-home-btn {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.back-home-btn:hover {
+    color: #ff85a2;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 110px auto 50px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.profile-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    text-align: center;
+    position: sticky;
+    top: 100px;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    background: #ffe3e8;
+    color: #ff85a2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 14px;
+}
+
+.profile-card h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.user-email-text {
+    color: #888;
+    font-size: 0.88rem;
+    margin-bottom: 0;
+}
+
+.loyalty-section {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 18px;
+    margin-top: 18px;
+    text-align: left;
+}
+
+.loyalty-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.loyalty-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin-bottom: 12px;
+    transition: all 0.4s ease;
+}
+
+.tier-bronze { background: #cd7f32; color: white; }
+.tier-silver { background: #a8a9ad; color: #333;  }
+.tier-gold   { background: #ffd700; color: #333;  }
+
+.loyalty-progress-wrap {
+    margin-bottom: 10px;
+}
+
+.loyalty-progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.73rem;
+    font-weight: 600;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.loyalty-bar {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.loyalty-bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.9s ease;
+    min-width: 4px;
+}
+
+.loyalty-hint {
+    font-size: 0.78rem;
+    color: #888;
+    line-height: 1.5;
+    margin: 8px 0 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.loyalty-hint i {
+    color: #ff85a2;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.loyalty-rate {
+    color: #bbb;
+    font-size: 0.72rem;
+}
+
+.loyalty-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 4px;
+}
+
+.loyalty-perk {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: #555;
+    background: #fff5f7;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.loyalty-perk i {
+    color: #ff85a2;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+.account-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 11px 20px;
+    background: linear-gradient(135deg, #ffeef3, #fff5f7);
+    color: #ff85a2;
+    border: 2px solid #ffccd8;
+    border-radius: 10px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.account-btn:hover {
+    background: linear-gradient(135deg, #ff85a2, #ffb7c5);
+    color: white;
+    border-color: #ff85a2;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(255, 133, 162, 0.3);
+}
+
+.logout-btn {
+    margin-top: 10px;
+    padding: 11px 20px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+}
+
+.logout-btn:hover {
+    background: #e8354a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(255, 71, 87, 0.3);
+}
+
+.orders-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+.orders-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+
+.orders-card-header h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.orders-card-header h2 i {
+    color: #ff85a2;
+}
+
+.orders-count-badge {
+    background: #ffe3e8;
+    color: #ff85a2;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.orders-table th {
+    padding: 12px 16px;
+    text-align: left;
+    color: #999;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-bottom: 2px solid #f5f5f5;
+}
+
+.orders-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 0.93rem;
+    color: #444;
+    vertical-align: middle;
+}
+
+.orders-table tr:last-child td {
+    border-bottom: none;
+}
+
+.orders-table tr:hover td {
+    background: #fffafc;
+}
+
+.order-id-cell {
+    font-family: monospace;
+    font-weight: 700;
+    color: #333 !important;
+    letter-spacing: 0.5px;
+}
+
+.order-amount-cell {
+    font-weight: 700 !important;
+    color: #333 !important;
+}
+
+.table-status-cell {
+    text-align: center;
+    padding: 40px 20px !important;
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+.table-error {
+    color: #e74c3c !important;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
+.status-processing { background: #fff3cd; color: #856404; }
+.status-delivered  { background: #d4edda; color: #155724; }
+.status-cancelled  { background: #fde8e8; color: #c0392b; }
+.status-out        { background: #e8f4fd; color: #1a6ea8; }
+
+@media (max-width: 900px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        margin-top: 90px;
+    }
+
+    .profile-card {
+        position: static;
+    }
+}
+
+@media (max-width: 480px) {
+    .orders-card {
+        padding: 20px 15px;
+    }
+
+    .orders-table th,
+    .orders-table td {
+        padding: 10px 10px;
+        font-size: 0.82rem;
+    }
+
+    .profile-card {
+        padding: 24px 18px;
+    }
+}

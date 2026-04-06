@@ -1072,9 +1072,6 @@
     color: var(--primary);
 }
 
-/* ============================================================
-   RESPONSIVE
-============================================================ */
 @media (max-width: 1024px) {
     .custom-maker-content {
         grid-template-columns: 1fr;
@@ -1158,4 +1155,18 @@
     .mode-tab-text span {
         font-size: 0.85rem;
     }
+}
+
+#submit-order {
+    background: #4cd964 !important;
+    color: white !important;
+    opacity: 1 !important;
+}
+
+#submit-order:hover {
+    background: #44c554 !important;
+}
+
+.summary-actions {
+    display: none !important;
 }

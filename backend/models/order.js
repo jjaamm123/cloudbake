@@ -1,65 +1,43 @@
 const mongoose = require('mongoose');
 
-const orderSchema = mongoose.Schema({
-    // Link this order to a specific user (so they can see it in "My History")
+const orderItemSchema = new mongoose.Schema({
+    name:    { type: String,  required: true },
+    qty:     { type: Number,  required: true, default: 1 },
+    image:   { type: String,  default: '' },
+    price:   { type: Number,  required: true },
+    product: { type: String,  default: '' }   // item id / slug from cart
+}, { _id: false });
+
+const shippingAddressSchema = new mongoose.Schema({
+    address:    { type: String, default: '' },
+    city:       { type: String, default: 'Kathmandu' },
+    postalCode: { type: String, default: '' },
+    country:    { type: String, default: 'Nepal' },
+    phone:      { type: String, default: '' },
+    name:       { type: String, default: '' }
+}, { _id: false });
+
+const orderSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
+        ref:  'User',
+        required: true
     },
-    orderItems: [
-        {
-            name: { type: String, required: true },
-            qty: { type: Number, required: true },
-            image: { type: String, required: true },
-            price: { type: Number, required: true },
-            product: {
-                type: mongoose.Schema.Types.ObjectId,
-                required: true,
-                ref: 'Product'
-            }
-        }
-    ],
-    shippingAddress: {
-        address: { type: String, required: true },
-        city: { type: String, required: true },
-        postalCode: { type: String, required: true },
-        country: { type: String, required: true }
+    orderItems:      [orderItemSchema],
+    shippingAddress: shippingAddressSchema,
+    paymentMethod:   { type: String, default: 'COD' },
+    totalPrice:      { type: Number, required: true, default: 0 },
+    isPaid:          { type: Boolean, default: false },
+    isDelivered:     { type: Boolean, default: false },
+    status: {
+        type:    String,
+        default: 'Processing',
+        enum:    ['Processing', 'Confirmed', 'Out for Delivery', 'Delivered', 'Cancelled']
     },
-    paymentMethod: {
-        type: String,
-        required: true,
-    },
-    // We store payment result from PayPal/Stripe here later
-    paymentResult: {
-        id: { type: String },
-        status: { type: String },
-        update_time: { type: String },
-        email_address: { type: String }
-    },
-    totalPrice: {
-        type: Number,
-        required: true,
-        default: 0.0
-    },
-    isPaid: {
-        type: Boolean,
-        required: true,
-        default: false
-    },
-    paidAt: {
-        type: Date
-    },
-    isDelivered: {
-        type: Boolean,
-        required: true,
-        default: false
-    },
-    deliveredAt: {
-        type: Date
-    }
+    paidAt:      { type: Date },
+    deliveredAt: { type: Date }
 }, {
-    timestamps: true 
+    timestamps: true   // adds createdAt + updatedAt automatically
 });
 
 module.exports = mongoose.model('Order', orderSchema);

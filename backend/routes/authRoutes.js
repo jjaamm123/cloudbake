@@ -1,9 +1,12 @@
 const express = require('express');
-const router = express.Router();
-const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const router  = express.Router();
+const jwt     = require('jsonwebtoken');
+const User    = require('../models/user');
 const { protect } = require('../middleware/authMiddleware');
-
+const {
+    sendWelcomeEmail,
+    sendLoginNotificationEmail
+} = require('../utils/emailService');                  
 
 function getTierFromPoints(points) {
     if (points >= 1500) return 'gold';
@@ -14,21 +17,19 @@ function getTierFromPoints(points) {
 function pointsToNextTier(points) {
     if (points < 500)  return { next: 'silver', needed: 500  - points };
     if (points < 1500) return { next: 'gold',   needed: 1500 - points };
-    return null; // already Gold
+    return null;
 }
 
-const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
-};
+const generateToken = (id) =>
+    jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 
 router.post('/register', async (req, res) => {
     const { name, email, password, type } = req.body;
 
     try {
         const userExists = await User.findOne({ email });
-        if (userExists) {
+        if (userExists)
             return res.status(400).json({ message: 'User already exists' });
-        }
 
         const startingPoints = 100;
         const user = await User.create({
@@ -41,6 +42,9 @@ router.post('/register', async (req, res) => {
         });
 
         if (user) {
+            sendWelcomeEmail({ to: email, name })
+                .catch(err => console.error('Welcome email failed:', err));
+
             const progress = pointsToNextTier(user.points);
             res.status(201).json({
                 _id:          user._id,
@@ -68,12 +72,26 @@ router.post('/login', async (req, res) => {
         const user = await User.findOne({ email });
 
         if (user && (await user.matchPassword(password))) {
-            // Recalculate tier in case points were updated externally
             const correctTier = getTierFromPoints(user.points);
             if (user.tier !== correctTier) {
                 user.tier = correctTier;
                 await user.save();
             }
+
+            const loginTime = new Date().toLocaleString('en-US', {
+                weekday: 'long', year: 'numeric', month: 'long',
+                day: 'numeric', hour: '2-digit', minute: '2-digit',
+                timeZoneName: 'short'
+            });
+            const ua      = req.headers['user-agent'] || '';
+            const browser = ua.includes('Chrome')  ? 'Google Chrome'
+                          : ua.includes('Firefox') ? 'Mozilla Firefox'
+                          : ua.includes('Safari')  ? 'Safari'
+                          : ua.includes('Edge')    ? 'Microsoft Edge'
+                          : 'Unknown browser';
+
+            sendLoginNotificationEmail({ to: email, name: user.name, time: loginTime, browser })
+                .catch(err => console.error('Login notification email failed:', err));
 
             const progress = pointsToNextTier(user.points);
             res.json({
@@ -102,7 +120,6 @@ router.get('/profile', protect, async (req, res) => {
         const user = await User.findById(req.user._id).select('-password');
         if (!user) return res.status(404).json({ message: 'User not found' });
 
-        // Sync tier with current points
         const correctTier = getTierFromPoints(user.points);
         if (user.tier !== correctTier) {
             user.tier = correctTier;
@@ -111,8 +128,8 @@ router.get('/profile', protect, async (req, res) => {
 
         const Order  = require('../models/order');
         const orders = await Order.find({ user: req.user._id }).sort({ createdAt: -1 });
-
         const progress = pointsToNextTier(user.points);
+
         res.json({
             _id:          user._id,
             name:         user.name,
@@ -134,9 +151,8 @@ router.get('/profile', protect, async (req, res) => {
 router.post('/update-points', protect, async (req, res) => {
     try {
         const { totalPrice } = req.body;
-        if (!totalPrice || totalPrice <= 0) {
+        if (!totalPrice || totalPrice <= 0)
             return res.status(400).json({ message: 'Invalid totalPrice' });
-        }
 
         const user = await User.findById(req.user._id);
         if (!user) return res.status(404).json({ message: 'User not found' });
